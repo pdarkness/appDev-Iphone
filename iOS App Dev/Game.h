@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "Player.h"
+#import "inputLayer.h"
 
-@interface Game : CCScene
+@interface Game : CCScene <InputLayerDelgate>
 {
+    CGSize _winSize;
+    NSDictionary *_config;
+    CCLayerGradient *_sky;
+    Player *_player;
+    BOOL _followPlayer;
+    CCParallaxNode *_parallaxNode;
+    CGFloat _landscapeWidth;
+    CCNode *_gameNode;
 }
 
 @end
