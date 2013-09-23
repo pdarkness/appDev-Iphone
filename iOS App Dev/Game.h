@@ -21,6 +21,8 @@
     CCParallaxNode *_parallaxNode;
     CGFloat _landscapeWidth;
     CCNode *_gameNode;
+    ChipmunkSpace *_space;
+    ccTime _accumulator;
 }
 
 @end

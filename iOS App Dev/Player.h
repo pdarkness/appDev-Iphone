@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Player : CCSprite
+@interface Player : CCPhysicsSprite
 {
-    
+    ChipmunkSpace *_space;
 }
 
-- (id)initWithPosition:(CGPoint)position;
+- (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
+- (void)jumpWithPower:(CGFloat)power vector:(cpVect)vector;
+
 @end
