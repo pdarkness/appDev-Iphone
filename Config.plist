@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>gravity</key>
-	<string>50.0f</string>
+	<string>75.0f</string>
 	<key>startPosition</key>
 	<string>{95,150}</string>
 </dict>
