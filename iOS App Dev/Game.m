@@ -32,6 +32,11 @@
         // Setup world
         [self setupLandscape];
         [self setupPhysicsLandscape];
+        
+        // Collision handler
+        [_space setDefaultCollisionHandler:self begin:@selector(CollisionStarted:space:) preSolve:nil postSolve:nil separate:nil];
+        
+        // Add goal
         _goal = [[Goal alloc] initWithSpace:_space position:CGPointFromString(_config[@"goalPos"])];
         [_gameNode addChild: _goal];
         
@@ -53,6 +58,19 @@
         [self scheduleUpdate];
     }
     return self;
+}
+
+- (bool)CollisionStarted:(cpArbiter *)arbiter space:(ChipmunkSpace*)space {
+    cpBody *firstBody;
+    cpBody *secondBody;
+    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
+    ChipmunkBody *firstChipBody = firstBody->data;
+    ChipmunkBody *secChipBody = secondBody->data;
+    if ((firstChipBody == _player.chipmunkBody && secChipBody == _goal.chipmunkBody) ||
+        (firstChipBody == _goal.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+        NSLog(@"You hit the goal! =)");
+    }
+    return YES;
 }
 
 - (void)setupLandscape
