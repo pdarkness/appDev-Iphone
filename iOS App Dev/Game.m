@@ -12,6 +12,7 @@
 #import "ChipmunkAutoGeometry.h"
 #import "ChipmunkSpace.h"
 #import "Goal.h"
+#import "Coin.h"
 
 
 @implementation Game
@@ -74,6 +75,10 @@
         (firstChipBody == _goal.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"You hit the goal! =)");
     }
+    if ((firstChipBody == _player.chipmunkBody && secChipBody == _coin.chipmunkBody) ||
+        (firstChipBody == _coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+        NSLog(@"You got the coin! =)");
+    }
     return YES;
 }
 
@@ -132,8 +137,8 @@
         [_space step:fixedTimeStep];
         _accumulator -= fixedTimeStep;
     }
-    NSString *st = NSStringFromCGPoint(_player.position);
-    NSLog(st);
+   // NSString *st = NSStringFromCGPoint(_player.position);
+    //NSLog(st);
     if (_followPlayer)
     {
         if (_player.position.x >= _winSize.width / 2 && _player.position.x < (_landscapeWidth - (_winSize.width / 2)))
