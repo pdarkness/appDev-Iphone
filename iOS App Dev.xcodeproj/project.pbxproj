@@ -144,6 +144,9 @@
 		0B31314017E8662800D0829B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B31313F17E8662800D0829B /* Game.m */; };
 		4C9089A417F3958E003A936E /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9089A217F3958E003A936E /* libChipmunkPro-iPhone.a */; };
 		4C9089A817F39B2A003A936E /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089A717F39B2A003A936E /* Menu.m */; };
+		4C9089AC17F3A418003A936E /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089AB17F3A418003A936E /* Coin.m */; };
+		4C9089AE17F3A748003A936E /* spinning_coin_gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089AD17F3A748003A936E /* spinning_coin_gold.png */; };
+		4C9089B017F3AAFF003A936E /* coin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089AF17F3AAFF003A936E /* coin1.png */; };
 		C2206C4517F33D4100FE85FB /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2206C4317F33D4100FE85FB /* libChipmunkPro-iPhone.a */; };
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
@@ -487,6 +490,10 @@
 		4C9089A317F3958E003A936E /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
 		4C9089A717F39B2A003A936E /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		4C9089A917F3A0E6003A936E /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		4C9089AA17F3A418003A936E /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		4C9089AB17F3A418003A936E /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
+		4C9089AD17F3A748003A936E /* spinning_coin_gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinning_coin_gold.png; sourceTree = "<group>"; };
+		4C9089AF17F3AAFF003A936E /* coin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin1.png; sourceTree = "<group>"; };
 		C2206C1A17F33D4000FE85FB /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		C2206C1B17F33D4100FE85FB /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		C2206C1C17F33D4100FE85FB /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -610,6 +617,8 @@
 			children = (
 				0B3130D217E85CF400D0829B /* AppDelegate.h */,
 				0B3130D317E85CF400D0829B /* AppDelegate.m */,
+				4C9089AA17F3A418003A936E /* Coin.h */,
+				4C9089AB17F3A418003A936E /* Coin.m */,
 				0B3130D817E85CF400D0829B /* IntroLayer.h */,
 				0B3130D917E85CF400D0829B /* IntroLayer.m */,
 				C2D0C88117EF8F2400AF160A /* InputLayer.h */,
@@ -633,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				4C90897717F3958D003A936E /* ChipmunkPro-iPhone-Trial */,
+				4C9089AF17F3AAFF003A936E /* coin1.png */,
 				C22C156117F38ADF000CD33D /* grass_up2.png */,
 				C22C155F17F37750000CD33D /* mirror.png */,
 				C2D0C89F17F0F94400AF160A /* grass_up.png */,
@@ -654,6 +664,7 @@
 				0B312F5517E85CF200D0829B /* Icon@2x.png */,
 				0B312F5717E85CF200D0829B /* Info.plist */,
 				0B312F5817E85CF200D0829B /* iTunesArtwork */,
+				4C9089AD17F3A748003A936E /* spinning_coin_gold.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1219,8 +1230,10 @@
 				0B312F5217E85CF200D0829B /* Icon-Small@2x.png in Resources */,
 				C2D0C88717EF9E7700AF160A /* testDown2.png in Resources */,
 				0B312F5417E85CF200D0829B /* Icon.png in Resources */,
+				4C9089AE17F3A748003A936E /* spinning_coin_gold.png in Resources */,
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
+				4C9089B017F3AAFF003A936E /* coin1.png in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
 				C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */,
 				C2BCF3F117EF6D0200F8ABE6 /* Config.plist in Resources */,
@@ -1338,6 +1351,7 @@
 				0B3130BA17E85CF400D0829B /* mat3.c in Sources */,
 				0B3130BC17E85CF400D0829B /* mat4.c in Sources */,
 				0B3130BE17E85CF400D0829B /* neon_matrix_impl.c in Sources */,
+				4C9089AC17F3A418003A936E /* Coin.m in Sources */,
 				0B3130C017E85CF400D0829B /* plane.c in Sources */,
 				0B3130C217E85CF400D0829B /* quaternion.c in Sources */,
 				4C9089A817F39B2A003A936E /* Menu.m in Sources */,

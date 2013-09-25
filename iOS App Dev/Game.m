@@ -40,6 +40,10 @@
         _goal = [[Goal alloc] initWithSpace:_space position:CGPointFromString(_config[@"goalPos"])];
         [_gameNode addChild: _goal];
         
+        //Add coin
+        _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(_config[@"coinPos"])];
+        [_gameNode addChild:_coin];
+        
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
         debugNode.visible = NO;
