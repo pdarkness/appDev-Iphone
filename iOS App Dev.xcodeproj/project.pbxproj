@@ -151,9 +151,7 @@
 		C2D0C88717EF9E7700AF160A /* testDown2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D0C88617EF9E7700AF160A /* testDown2.png */; };
 		C2D0C88917F0BE7C00AF160A /* mountainBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D0C88817F0BE7C00AF160A /* mountainBlue.png */; };
 		C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D0C89017F0CCA900AF160A /* grass_lower2.png */; };
-		C2D0C89417F0D62700AF160A /* GameoverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D0C89317F0D62700AF160A /* GameoverLayer.m */; };
 		C2D0C8A017F0F94400AF160A /* grass_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D0C89F17F0F94400AF160A /* grass_up.png */; };
-		C2D0C8A317F1ECBA00AF160A /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D0C8A217F1ECBA00AF160A /* Goal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -491,11 +489,7 @@
 		C2D0C88617EF9E7700AF160A /* testDown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testDown2.png; sourceTree = "<group>"; };
 		C2D0C88817F0BE7C00AF160A /* mountainBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mountainBlue.png; sourceTree = "<group>"; };
 		C2D0C89017F0CCA900AF160A /* grass_lower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_lower2.png; sourceTree = "<group>"; };
-		C2D0C89217F0D62700AF160A /* GameoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameoverLayer.h; sourceTree = "<group>"; };
-		C2D0C89317F0D62700AF160A /* GameoverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameoverLayer.m; sourceTree = "<group>"; };
 		C2D0C89F17F0F94400AF160A /* grass_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_up.png; sourceTree = "<group>"; };
-		C2D0C8A117F1ECBA00AF160A /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
-		C2D0C8A217F1ECBA00AF160A /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,10 +561,6 @@
 				C2D0C88217EF8F2400AF160A /* InputLayer.m */,
 				0B31313E17E8662800D0829B /* Game.h */,
 				0B31313F17E8662800D0829B /* Game.m */,
-				C2D0C89217F0D62700AF160A /* GameoverLayer.h */,
-				C2D0C89317F0D62700AF160A /* GameoverLayer.m */,
-				C2D0C8A117F1ECBA00AF160A /* Goal.h */,
-				C2D0C8A217F1ECBA00AF160A /* Goal.m */,
 				C2BCF3E617EF658200F8ABE6 /* Player.h */,
 				C2BCF3E717EF658200F8ABE6 /* Player.m */,
 				0B312F4217E85CF200D0829B /* Resources */,
@@ -1135,7 +1125,6 @@
 				0B312F8E17E85CF200D0829B /* CCCamera.m in Sources */,
 				0B312F9117E85CF200D0829B /* CCClippingNode.m in Sources */,
 				0B312F9517E85CF200D0829B /* CCConfiguration.m in Sources */,
-				C2D0C8A317F1ECBA00AF160A /* Goal.m in Sources */,
 				0B312F9817E85CF200D0829B /* ccDeprecated.m in Sources */,
 				0B312F9B17E85CF200D0829B /* CCDirector.m in Sources */,
 				0B312F9E17E85CF200D0829B /* CCDrawingPrimitives.m in Sources */,
@@ -1227,7 +1216,6 @@
 				0B3130CA17E85CF400D0829B /* vec3.c in Sources */,
 				0B3130CC17E85CF400D0829B /* vec4.c in Sources */,
 				0B3130D117E85CF400D0829B /* main.m in Sources */,
-				C2D0C89417F0D62700AF160A /* GameoverLayer.m in Sources */,
 				0B3130D417E85CF400D0829B /* AppDelegate.m in Sources */,
 				0B3130DA17E85CF400D0829B /* IntroLayer.m in Sources */,
 				0B31314017E8662800D0829B /* Game.m in Sources */,

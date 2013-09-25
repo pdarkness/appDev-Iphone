@@ -40,7 +40,7 @@
         //Add player
         NSString *startPosition = _config[@"startPosition"];
         _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(startPosition)];
-        [self addChild:_player];
+        [_gameNode addChild:_player];
         
         //Add inputLayer
         inputLayer *inputlayer = [[inputLayer alloc] init];

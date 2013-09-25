@@ -40,8 +40,8 @@
 
 - (void)jumpWithPower:(CGFloat)power vector:(cpVect)vector
 {
-    vector = ccp(0, 35535);
-    cpVect impulseVector = vector;//cpvmult(vector, self.chipmunkBody.mass * power);
+    //vector = ccp(0, 35535);
+    cpVect impulseVector = cpvmult(vector, self.chipmunkBody.mass * power);
     [self.chipmunkBody applyImpulse:impulseVector offset:cpvzero];
 }
 @end
