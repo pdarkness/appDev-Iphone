@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "Player.h"
 #import "inputLayer.h"
+#import "Goal.h"
 
 @interface Game : CCScene <InputLayerDelgate>
 {
@@ -23,6 +24,7 @@
     CCNode *_gameNode;
     ChipmunkSpace *_space;
     ccTime _accumulator;
+    Goal *_goal;
 }
 
 @end

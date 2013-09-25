@@ -11,6 +11,7 @@
 #import "inputLayer.h"
 #import "ChipmunkAutoGeometry.h"
 #import "ChipmunkSpace.h"
+#import "Goal.h"
 
 
 @implementation Game
@@ -31,10 +32,12 @@
         // Setup world
         [self setupLandscape];
         [self setupPhysicsLandscape];
+        _goal = [[Goal alloc] initWithSpace:_space position:CGPointFromString(_config[@"goalPos"])];
+        [_gameNode addChild: _goal];
         
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
-        debugNode.visible = YES;
+        debugNode.visible = NO;
         [self addChild:debugNode];
         
         //Add player
@@ -83,7 +86,6 @@
     ChipmunkPolyline *line = [contour lineAtIndex:0];
     ChipmunkPolyline *simpleLine = [line simplifyCurves:1];
     ChipmunkBody *terrainBody = [ChipmunkBody staticBody];
-    //terrainBody.force(ccp(50, 0)); // er að reyna setja force á chipmunkbody hérna 
     NSArray * terrainShapes =  [simpleLine asChipmunkSegmentsWithBody:terrainBody radius:0 offset:cpvzero];
     for (ChipmunkShape *shape in terrainShapes) {
         [_space addShape:shape];
@@ -111,6 +113,7 @@
 
 - (void)touchEndedAtPosition:(CGPoint)position afterDelay:(NSTimeInterval)delay
 {
+    position = [_gameNode convertToNodeSpace:position];
     _followPlayer = YES;
     cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
     [_player jumpWithPower:delay*300 vector:normalizedVector];

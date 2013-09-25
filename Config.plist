@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>New item</key>
-	<string></string>
+	<key>goalPos</key>
+	<string>{800,200}</string>
 	<key>gravity</key>
 	<string>75.0f</string>
 	<key>startPosition</key>
