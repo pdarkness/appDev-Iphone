@@ -87,10 +87,10 @@
     _landscapeWidth = bottom.contentSize.width;
     [_parallaxNode addChild:bottom z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
-    CCSprite *top = [CCSprite spriteWithFile:@"grass_up.png"];
-    top.anchorPoint = ccp(0,500);
+    CCSprite *top = [CCSprite spriteWithFile:@"grass_up2.png"];
+    top.anchorPoint = ccp(0,-1.11f);
     _landscapeWidth = top.contentSize.width;
-    [_parallaxNode addChild:top z:4 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    [_parallaxNode addChild:top z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
     _gameNode = [CCNode node];
     [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
@@ -108,6 +108,16 @@
     for (ChipmunkShape *shape in terrainShapes) {
         [_space addShape:shape];
     }
+    NSURL *url1 = [[NSBundle mainBundle] URLForResource:@"grass_up2" withExtension:@"png"];
+    ChipmunkImageSampler *sampler1 = [ChipmunkImageSampler samplerWithImageFile:url1 isMask:NO];
+    ChipmunkPolylineSet *contour1 = [sampler1 marchAllWithBorder:NO hard:YES];
+    ChipmunkPolyline *line1 = [contour1 lineAtIndex:0];
+    ChipmunkPolyline *simpleLine1 = [line1 simplifyCurves:1];
+    ChipmunkBody *terrainBody1 = [ChipmunkBody staticBody];
+    NSArray * terrainShapes1 =  [simpleLine1 asChipmunkSegmentsWithBody:terrainBody1 radius:0 offset:ccp(0, 168)];
+    for (ChipmunkShape *shape1 in terrainShapes1) {
+        [_space addShape:shape1];
+    }
 }
 
 - (void)update:(ccTime)delta
@@ -118,7 +128,8 @@
         [_space step:fixedTimeStep];
         _accumulator -= fixedTimeStep;
     }
-    
+    NSString *st = NSStringFromCGPoint(_player.position);
+    NSLog(st);
     if (_followPlayer)
     {
         if (_player.position.x >= _winSize.width / 2 && _player.position.x < (_landscapeWidth - (_winSize.width / 2)))
