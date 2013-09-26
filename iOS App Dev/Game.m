@@ -59,8 +59,8 @@
         
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
-        debugNode.visible = NO;
-        [self addChild:debugNode];
+        debugNode.visible = YES;
+        [_gameNode addChild:debugNode];
         
         //Add player
         NSString *startPosition = _config[@"startPosition"];

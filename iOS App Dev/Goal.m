@@ -16,7 +16,7 @@
         CGSize size = self.textureRect.size;
         ChipmunkBody *body = [ChipmunkBody staticBody];
         body.pos = position;
-        ChipmunkShape *shape = [ChipmunkPolyShape boxWithBody:body width:size.width/1.5 height:size.height/1.5];
+        ChipmunkShape *shape = [ChipmunkPolyShape boxWithBody:body width:size.width/1.8 height:size.height/1.8];
         shape.sensor = YES;
         
         [space addShape:shape];
