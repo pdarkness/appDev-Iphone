@@ -58,7 +58,7 @@
         
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
-        debugNode.visible = NO;
+        debugNode.visible = YES;
         [self addChild:debugNode];
         
         //Add player

@@ -154,6 +154,7 @@
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
 		C22C156217F38ADF000CD33D /* grass_up2.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C156117F38ADF000CD33D /* grass_up2.png */; };
+		C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */ = {isa = PBXBuildFile; fileRef = C2BBFB3A17F4755000981C75 /* AppleSprite4.gif */; };
 		C2BCF3E817EF658200F8ABE6 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BCF3E717EF658200F8ABE6 /* Player.m */; };
 		C2BCF3F117EF6D0200F8ABE6 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2BCF3F017EF6D0200F8ABE6 /* Config.plist */; };
 		C2BCF3F317EF7A6A00F8ABE6 /* devil.gif in Resources */ = {isa = PBXBuildFile; fileRef = C2BCF3F217EF7A6A00F8ABE6 /* devil.gif */; };
@@ -548,6 +549,7 @@
 		C22C155D17F37432000CD33D /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		C22C155F17F37750000CD33D /* mirror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mirror.png; sourceTree = "<group>"; };
 		C22C156117F38ADF000CD33D /* grass_up2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_up2.png; sourceTree = "<group>"; };
+		C2BBFB3A17F4755000981C75 /* AppleSprite4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AppleSprite4.gif; sourceTree = "<group>"; };
 		C2BCF3E617EF658200F8ABE6 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		C2BCF3E717EF658200F8ABE6 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		C2BCF3F017EF6D0200F8ABE6 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Config.plist; path = ../Config.plist; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C2BBFB3A17F4755000981C75 /* AppleSprite4.gif */,
 				4C9089B117F3B66E003A936E /* AppleSprite3.gif */,
 				4C90897717F3958D003A936E /* ChipmunkPro-iPhone-Trial */,
 				4C9089AF17F3AAFF003A936E /* coin1.png */,
@@ -1250,6 +1253,7 @@
 				4C9089B017F3AAFF003A936E /* coin1.png in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
 				C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */,
+				C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */,
 				C2BCF3F117EF6D0200F8ABE6 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
