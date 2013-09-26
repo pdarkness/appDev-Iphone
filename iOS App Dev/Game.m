@@ -15,6 +15,7 @@
 #import "Coin.h"
 #import "Enemy.h"
 #import "GameOver.h"
+#import "YouWon.h"
 
 
 
@@ -85,6 +86,8 @@
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _goal.chipmunkBody) ||
         (firstChipBody == _goal.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"You hit the goal! =)");
+        YouWon *menu = [[YouWon alloc] init];
+        [[CCDirector sharedDirector] replaceScene:menu];
     }
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _coin.chipmunkBody) ||
         (firstChipBody == _coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {

@@ -150,6 +150,7 @@
 		4C9089B217F3B66E003A936E /* AppleSprite3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089B117F3B66E003A936E /* AppleSprite3.gif */; };
 		4C9089B517F456DA003A936E /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089B417F456DA003A936E /* Enemy.m */; };
 		4C9089B817F46ECF003A936E /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089B717F46ECF003A936E /* GameOver.m */; };
+		4C9089BB17F47A8F003A936E /* YouWon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089BA17F47A8F003A936E /* YouWon.m */; };
 		C2206C4517F33D4100FE85FB /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2206C4317F33D4100FE85FB /* libChipmunkPro-iPhone.a */; };
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
@@ -503,6 +504,8 @@
 		4C9089B417F456DA003A936E /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		4C9089B617F46ECF003A936E /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		4C9089B717F46ECF003A936E /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
+		4C9089B917F47A8F003A936E /* YouWon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouWon.h; sourceTree = "<group>"; };
+		4C9089BA17F47A8F003A936E /* YouWon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouWon.m; sourceTree = "<group>"; };
 		C2206C1A17F33D4000FE85FB /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		C2206C1B17F33D4100FE85FB /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		C2206C1C17F33D4100FE85FB /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -645,6 +648,8 @@
 				4C9089A717F39B2A003A936E /* Menu.m */,
 				C2BCF3E617EF658200F8ABE6 /* Player.h */,
 				C2BCF3E717EF658200F8ABE6 /* Player.m */,
+				4C9089B917F47A8F003A936E /* YouWon.h */,
+				4C9089BA17F47A8F003A936E /* YouWon.m */,
 				0B312F4217E85CF200D0829B /* Resources */,
 				0B312F5A17E85CF200D0829B /* libs */,
 				0B3130CE17E85CF400D0829B /* Supporting Files */,
@@ -1277,6 +1282,7 @@
 				0B312F7617E85CF200D0829B /* CCActionManager.m in Sources */,
 				0B312F7917E85CF200D0829B /* CCActionPageTurn3D.m in Sources */,
 				0B312F7C17E85CF200D0829B /* CCActionProgressTimer.m in Sources */,
+				4C9089BB17F47A8F003A936E /* YouWon.m in Sources */,
 				0B312F7F17E85CF200D0829B /* CCActionTiledGrid.m in Sources */,
 				0B312F8217E85CF200D0829B /* CCActionTween.m in Sources */,
 				0B312F8517E85CF200D0829B /* CCAnimation.m in Sources */,
