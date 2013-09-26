@@ -8,6 +8,7 @@
 
 #import "Enemy.h"
 
+
 @implementation Enemy
 
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position{

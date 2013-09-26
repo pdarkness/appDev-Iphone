@@ -170,16 +170,32 @@
     //NSLog(st);
     if (_followPlayer == YES)
     {
-        if (_player.position.x >= _winSize.width / 2 && _player.position.x < (_landscapeWidth - (_winSize.width / 2)))
+        if (_player.position.x >= _winSize.width / 2 && _player.position.x <
+            (_landscapeWidth - (_winSize.width / 2)))
         {
+           // [self updateLandscapeAndElements:delta];
             _parallaxNode.position = ccp(-(_player.position.x - (_winSize.width / 2)), 0);
+            [self updateLandscapeAndElements:delta];
         }
+        
         if(_player.position.x >= _landscapeWidth)
         {
             GameOver *menu = [[GameOver alloc] init];
             [[CCDirector sharedDirector] replaceScene:menu];
         }
+        
     }
+}
+
+-(void)updatePhysicsLandscape
+{
+
+}
+
+-(void)updateLandscapeAndElements:(ccTime)delta
+{
+    [self updatePhysicsLandscape];
+    //_landscapeWidth += 50;
 }
 
 #pragma mark - My Touch Delegate Methods
