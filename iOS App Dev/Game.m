@@ -171,6 +171,11 @@
         {
             _parallaxNode.position = ccp(-(_player.position.x - (_winSize.width / 2)), 0);
         }
+        if(_player.position.x >= _landscapeWidth)
+        {
+            GameOver *menu = [[GameOver alloc] init];
+            [[CCDirector sharedDirector] replaceScene:menu];
+        }
     }
 }
 
