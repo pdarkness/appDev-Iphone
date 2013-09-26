@@ -27,6 +27,7 @@
     ccTime _accumulator;
     Goal *_goal;
     Coin *_coin;
+    CGFloat _windSpeed;
 }
 
 @end

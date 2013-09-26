@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>windMaxSpeed</key>
+	<string>50</string>
 	<key>coinPos</key>
 	<string>{550,150}</string>
 	<key>goalPos</key>

@@ -17,6 +17,8 @@
 
 @implementation Game
 
+#pragma mark - Initilization
+
 - (id)init
 {
     self = [super init];
@@ -30,7 +32,9 @@
         _space = [[ChipmunkSpace alloc] init];
         CGFloat gravity = [_config[@"gravity"] floatValue];
         _space.gravity = ccp(0.0f, -gravity);
+        
         // Setup world
+        [self generateRandomWind];
         [self setupLandscape];
         [self setupPhysicsLandscape];
         
@@ -78,6 +82,8 @@
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _coin.chipmunkBody) ||
         (firstChipBody == _coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"You got the coin! =)");
+        
+        [_coin removeFromParentAndCleanup:YES];
     }
     return YES;
 }
@@ -129,6 +135,13 @@
     }
 }
 
+-(void)generateRandomWind
+{
+    _windSpeed = CCRANDOM_MINUS1_1()*[_config[@"winMaxSpeed"] floatValue];
+}
+
+#pragma mark - Update
+
 - (void)update:(ccTime)delta
 {
     CGFloat fixedTimeStep = 1.0f / 240.0f;
@@ -139,7 +152,7 @@
     }
    // NSString *st = NSStringFromCGPoint(_player.position);
     //NSLog(st);
-    if (_followPlayer)
+    if (_followPlayer == YES)
     {
         if (_player.position.x >= _winSize.width / 2 && _player.position.x < (_landscapeWidth - (_winSize.width / 2)))
         {
@@ -148,10 +161,13 @@
     }
 }
 
+#pragma mark - My Touch Delegate Methods
 
 - (void)touchEndedAtPosition:(CGPoint)position afterDelay:(NSTimeInterval)delay
 {
     position = [_gameNode convertToNodeSpace:position];
+    NSLog(@"touch: %@", NSStringFromCGPoint(position));
+    NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
     _followPlayer = YES;
     cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
     [_player jumpWithPower:delay*300 vector:normalizedVector];

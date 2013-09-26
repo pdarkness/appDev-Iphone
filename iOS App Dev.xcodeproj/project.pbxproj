@@ -147,6 +147,7 @@
 		4C9089AC17F3A418003A936E /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089AB17F3A418003A936E /* Coin.m */; };
 		4C9089AE17F3A748003A936E /* spinning_coin_gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089AD17F3A748003A936E /* spinning_coin_gold.png */; };
 		4C9089B017F3AAFF003A936E /* coin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089AF17F3AAFF003A936E /* coin1.png */; };
+		4C9089B217F3B66E003A936E /* AppleSprite3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089B117F3B66E003A936E /* AppleSprite3.gif */; };
 		C2206C4517F33D4100FE85FB /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2206C4317F33D4100FE85FB /* libChipmunkPro-iPhone.a */; };
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
@@ -494,6 +495,7 @@
 		4C9089AB17F3A418003A936E /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
 		4C9089AD17F3A748003A936E /* spinning_coin_gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinning_coin_gold.png; sourceTree = "<group>"; };
 		4C9089AF17F3AAFF003A936E /* coin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin1.png; sourceTree = "<group>"; };
+		4C9089B117F3B66E003A936E /* AppleSprite3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AppleSprite3.gif; sourceTree = "<group>"; };
 		C2206C1A17F33D4000FE85FB /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		C2206C1B17F33D4100FE85FB /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		C2206C1C17F33D4100FE85FB /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -641,6 +643,7 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C9089B117F3B66E003A936E /* AppleSprite3.gif */,
 				4C90897717F3958D003A936E /* ChipmunkPro-iPhone-Trial */,
 				4C9089AF17F3AAFF003A936E /* coin1.png */,
 				C22C156117F38ADF000CD33D /* grass_up2.png */,
@@ -1214,6 +1217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9089B217F3B66E003A936E /* AppleSprite3.gif in Resources */,
 				C22C156017F37750000CD33D /* mirror.png in Resources */,
 				0B312F4417E85CF200D0829B /* Default.png in Resources */,
 				0B312F4617E85CF200D0829B /* Default@2x.png in Resources */,
