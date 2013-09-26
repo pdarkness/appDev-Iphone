@@ -12,9 +12,11 @@
 @interface Player : CCPhysicsSprite
 {
     ChipmunkSpace *_space;
+    cpVect _impulseVector;
 }
 
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
+- (void)jump;
 - (void)jumpWithPower:(CGFloat)power vector:(cpVect)vector;
 
 @end

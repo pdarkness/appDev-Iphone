@@ -191,6 +191,7 @@
     NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
     _followPlayer = YES;
     cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
-    [_player jumpWithPower:delay*300 vector:normalizedVector];
+
+    [_player jump];
 }
 @end
