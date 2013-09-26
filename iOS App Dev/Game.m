@@ -13,6 +13,7 @@
 #import "ChipmunkSpace.h"
 #import "Goal.h"
 #import "Coin.h"
+#import "Enemy.h"
 
 
 @implementation Game
@@ -49,6 +50,10 @@
         _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(_config[@"coinPos"])];
         [_gameNode addChild:_coin];
         
+        //Add enemy
+        _enemy = [[Enemy alloc] initWithSpace:_space position:CGPointFromString(_config[@"enemyPos"])];
+        [_gameNode addChild:_enemy];
+        
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
         debugNode.visible = NO;
@@ -84,6 +89,10 @@
         NSLog(@"You got the coin! =)");
         
         [_coin removeFromParentAndCleanup:YES];
+    }
+    if ((firstChipBody == _player.chipmunkBody && secChipBody == _enemy.chipmunkBody) ||
+        (firstChipBody == _enemy.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+        NSLog(@"GAME OVER! =)");
     }
     return YES;
 }

@@ -12,6 +12,7 @@
 #import "inputLayer.h"
 #import "Goal.h"
 #import "Coin.h"
+#import "Enemy.h"
 
 @interface Game : CCScene <InputLayerDelgate>
 {
@@ -27,6 +28,7 @@
     ccTime _accumulator;
     Goal *_goal;
     Coin *_coin;
+    Enemy *_enemy;
     CGFloat _windSpeed;
 }
 
