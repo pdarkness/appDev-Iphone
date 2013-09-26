@@ -9,10 +9,10 @@
 	<key>coinPos</key>
 	<string>{550,150}</string>
 	<key>goalPos</key>
-	<string>{800,200}</string>
+	<string>{700,200}</string>
 	<key>gravity</key>
 	<string>75.0f</string>
 	<key>startPosition</key>
-	<string>{95,150}</string>
+	<string>{90,150}</string>
 </dict>
 </plist>
