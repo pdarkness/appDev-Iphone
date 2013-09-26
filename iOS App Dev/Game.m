@@ -14,6 +14,7 @@
 #import "Goal.h"
 #import "Coin.h"
 #import "Enemy.h"
+#import "Menu.h"
 
 
 @implementation Game
@@ -93,6 +94,8 @@
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _enemy.chipmunkBody) ||
         (firstChipBody == _enemy.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"GAME OVER! =)");
+        Menu *menu = [[Menu alloc] init];
+        [[CCDirector sharedDirector] replaceScene:menu];
     }
     return YES;
 }
