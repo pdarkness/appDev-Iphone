@@ -39,7 +39,7 @@
 }
 - (void)jump
 {
-    _impulseVector = cpv(50*self.chipmunkBody.mass, 100*self.chipmunkBody.mass);
+    _impulseVector = cpv(30*self.chipmunkBody.mass, 70*self.chipmunkBody.mass);
     
     [self.chipmunkBody applyImpulse:_impulseVector offset:cpvzero];
 }
