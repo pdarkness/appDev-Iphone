@@ -166,10 +166,14 @@
         [_space step:fixedTimeStep];
         _accumulator -= fixedTimeStep;
     }
+    
    // NSString *st = NSStringFromCGPoint(_player.position);
     //NSLog(st);
     if (_followPlayer == YES)
     {
+        _impulseVector = cpv(_player.chipmunkBody.mass/50, _player.chipmunkBody.mass/10);
+        
+        [_player.chipmunkBody applyForce:_impulseVector offset:cpvzero];
         if (_player.position.x >= _winSize.width / 2 && _player.position.x <
             (_landscapeWidth - (_winSize.width / 2)))
         {

@@ -30,6 +30,7 @@
     Coin *_coin;
     Enemy *_enemy;
     CGFloat _windSpeed;
+    cpVect _impulseVector ;
 }
 
 @end
