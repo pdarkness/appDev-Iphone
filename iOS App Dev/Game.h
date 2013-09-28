@@ -33,4 +33,7 @@
     cpVect _impulseVector ;
 }
 
+@property (nonatomic, strong) CCSprite *coinA;
+@property (nonatomic, strong) CCAction *coinAction;
+
 @end

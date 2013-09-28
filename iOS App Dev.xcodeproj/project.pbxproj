@@ -161,6 +161,12 @@
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
 		C22C156217F38ADF000CD33D /* grass_up2.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C156117F38ADF000CD33D /* grass_up2.png */; };
+		C29F3AEB17F6FAAA00523EA1 /* newCoins-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE517F6FAAA00523EA1 /* newCoins-hd.plist */; };
+		C29F3AEC17F6FAAA00523EA1 /* newCoins-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE617F6FAAA00523EA1 /* newCoins-hd.png */; };
+		C29F3AED17F6FAAA00523EA1 /* newCoins-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE717F6FAAA00523EA1 /* newCoins-ipadhd.plist */; };
+		C29F3AEE17F6FAAA00523EA1 /* newCoins-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE817F6FAAA00523EA1 /* newCoins-ipadhd.png */; };
+		C29F3AEF17F6FAAA00523EA1 /* newCoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE917F6FAAA00523EA1 /* newCoins.plist */; };
+		C29F3AF017F6FAAA00523EA1 /* newCoins.png in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AEA17F6FAAA00523EA1 /* newCoins.png */; };
 		C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */ = {isa = PBXBuildFile; fileRef = C2BBFB3A17F4755000981C75 /* AppleSprite4.gif */; };
 		C2BCF3E817EF658200F8ABE6 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BCF3E717EF658200F8ABE6 /* Player.m */; };
 		C2BCF3F117EF6D0200F8ABE6 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2BCF3F017EF6D0200F8ABE6 /* Config.plist */; };
@@ -564,6 +570,12 @@
 		C22C155D17F37432000CD33D /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		C22C155F17F37750000CD33D /* mirror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mirror.png; sourceTree = "<group>"; };
 		C22C156117F38ADF000CD33D /* grass_up2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_up2.png; sourceTree = "<group>"; };
+		C29F3AE517F6FAAA00523EA1 /* newCoins-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "newCoins-hd.plist"; sourceTree = "<group>"; };
+		C29F3AE617F6FAAA00523EA1 /* newCoins-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newCoins-hd.png"; sourceTree = "<group>"; };
+		C29F3AE717F6FAAA00523EA1 /* newCoins-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "newCoins-ipadhd.plist"; sourceTree = "<group>"; };
+		C29F3AE817F6FAAA00523EA1 /* newCoins-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newCoins-ipadhd.png"; sourceTree = "<group>"; };
+		C29F3AE917F6FAAA00523EA1 /* newCoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = newCoins.plist; sourceTree = "<group>"; };
+		C29F3AEA17F6FAAA00523EA1 /* newCoins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newCoins.png; sourceTree = "<group>"; };
 		C2BBFB3A17F4755000981C75 /* AppleSprite4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AppleSprite4.gif; sourceTree = "<group>"; };
 		C2BCF3E617EF658200F8ABE6 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		C2BCF3E717EF658200F8ABE6 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
@@ -672,6 +684,12 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C29F3AE517F6FAAA00523EA1 /* newCoins-hd.plist */,
+				C29F3AE617F6FAAA00523EA1 /* newCoins-hd.png */,
+				C29F3AE717F6FAAA00523EA1 /* newCoins-ipadhd.plist */,
+				C29F3AE817F6FAAA00523EA1 /* newCoins-ipadhd.png */,
+				C29F3AE917F6FAAA00523EA1 /* newCoins.plist */,
+				C29F3AEA17F6FAAA00523EA1 /* newCoins.png */,
 				4C9089C217F4C5D8003A936E /* coinsSprite-hd.plist */,
 				4C9089C317F4C5D8003A936E /* coinsSprite-hd.png */,
 				4C9089C417F4C5D8003A936E /* coinsSprite-ipadhd.plist */,
@@ -1262,10 +1280,13 @@
 				0B312F4817E85CF200D0829B /* Default-568h@2x.png in Resources */,
 				0B312F4A17E85CF200D0829B /* Default-Landscape~ipad.png in Resources */,
 				C2D0C88517EF9D3E00AF160A /* testDown.png in Resources */,
+				C29F3AEE17F6FAAA00523EA1 /* newCoins-ipadhd.png in Resources */,
 				0B312F4C17E85CF200D0829B /* Icon-72.png in Resources */,
+				C29F3AEB17F6FAAA00523EA1 /* newCoins-hd.plist in Resources */,
 				0B312F4E17E85CF200D0829B /* Icon-Small-50.png in Resources */,
 				4C9089CC17F4C5D8003A936E /* coinsSprite.plist in Resources */,
 				4C9089CD17F4C5D8003A936E /* coinsSprite.png in Resources */,
+				C29F3AED17F6FAAA00523EA1 /* newCoins-ipadhd.plist in Resources */,
 				0B312F5017E85CF200D0829B /* Icon-Small.png in Resources */,
 				C2D0C8A017F0F94400AF160A /* grass_up.png in Resources */,
 				C22C156217F38ADF000CD33D /* grass_up2.png in Resources */,
@@ -1276,12 +1297,15 @@
 				4C9089AE17F3A748003A936E /* spinning_coin_gold.png in Resources */,
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
 				4C9089C917F4C5D8003A936E /* coinsSprite-hd.png in Resources */,
+				C29F3AEF17F6FAAA00523EA1 /* newCoins.plist in Resources */,
+				C29F3AF017F6FAAA00523EA1 /* newCoins.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
 				4C9089B017F3AAFF003A936E /* coin1.png in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
 				C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */,
 				C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */,
 				4C9089C817F4C5D8003A936E /* coinsSprite-hd.plist in Resources */,
+				C29F3AEC17F6FAAA00523EA1 /* newCoins-hd.png in Resources */,
 				4C9089C017F4C5A2003A936E /* coinsSprite-ipadhd.png in Resources */,
 				C2BCF3F117EF6D0200F8ABE6 /* Config.plist in Resources */,
 			);
