@@ -13,4 +13,8 @@
 }
 
 - (id)initWithSpace:(ChipmunkSpace * )space position:(CGPoint)position;
+
+@property (nonatomic, strong) CCSprite *coin;
+@property (nonatomic, strong) CCAction *coinAction;
+
 @end
