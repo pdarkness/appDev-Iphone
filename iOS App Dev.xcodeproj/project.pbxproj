@@ -150,7 +150,6 @@
 		4C9089B217F3B66E003A936E /* AppleSprite3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089B117F3B66E003A936E /* AppleSprite3.gif */; };
 		4C9089B517F456DA003A936E /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089B417F456DA003A936E /* Enemy.m */; };
 		4C9089B817F46ECF003A936E /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089B717F46ECF003A936E /* GameOver.m */; };
-		4C9089BB17F47A8F003A936E /* YouWon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9089BA17F47A8F003A936E /* YouWon.m */; };
 		4C9089C017F4C5A2003A936E /* coinsSprite-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089BD17F4C5A2003A936E /* coinsSprite-ipadhd.png */; };
 		4C9089C817F4C5D8003A936E /* coinsSprite-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C217F4C5D8003A936E /* coinsSprite-hd.plist */; };
 		4C9089C917F4C5D8003A936E /* coinsSprite-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C317F4C5D8003A936E /* coinsSprite-hd.png */; };
@@ -158,6 +157,11 @@
 		4C9089CC17F4C5D8003A936E /* coinsSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C617F4C5D8003A936E /* coinsSprite.plist */; };
 		4C9089CD17F4C5D8003A936E /* coinsSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C717F4C5D8003A936E /* coinsSprite.png */; };
 		4CCD844D17F8B401002396D7 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD844C17F8B401002396D7 /* HUDLayer.m */; };
+		4CCD845317F8E278002396D7 /* applause-8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845017F8E278002396D7 /* applause-8.wav */; };
+		4CCD845517F8E278002396D7 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845217F8E278002396D7 /* coin-drop-4.wav */; };
+		4CCD845817F8E2A9002396D7 /* SoundEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD845717F8E2A9002396D7 /* SoundEffects.m */; };
+		4CCD845A17F8E9EB002396D7 /* apple.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845917F8E9EB002396D7 /* apple.wav */; };
+		4CCD845C17F8EC25002396D7 /* suck.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845B17F8EC25002396D7 /* suck.wav */; };
 		C2206C4517F33D4100FE85FB /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2206C4317F33D4100FE85FB /* libChipmunkPro-iPhone.a */; };
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
@@ -523,8 +527,6 @@
 		4C9089B417F456DA003A936E /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		4C9089B617F46ECF003A936E /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		4C9089B717F46ECF003A936E /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
-		4C9089B917F47A8F003A936E /* YouWon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouWon.h; sourceTree = "<group>"; };
-		4C9089BA17F47A8F003A936E /* YouWon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouWon.m; sourceTree = "<group>"; };
 		4C9089BD17F4C5A2003A936E /* coinsSprite-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coinsSprite-ipadhd.png"; sourceTree = "<group>"; };
 		4C9089C217F4C5D8003A936E /* coinsSprite-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "coinsSprite-hd.plist"; sourceTree = "<group>"; };
 		4C9089C317F4C5D8003A936E /* coinsSprite-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coinsSprite-hd.png"; sourceTree = "<group>"; };
@@ -533,6 +535,12 @@
 		4C9089C717F4C5D8003A936E /* coinsSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coinsSprite.png; sourceTree = "<group>"; };
 		4CCD844B17F8B401002396D7 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		4CCD844C17F8B401002396D7 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		4CCD845017F8E278002396D7 /* applause-8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "applause-8.wav"; sourceTree = "<group>"; };
+		4CCD845217F8E278002396D7 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
+		4CCD845617F8E2A9002396D7 /* SoundEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffects.h; sourceTree = "<group>"; };
+		4CCD845717F8E2A9002396D7 /* SoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffects.m; sourceTree = "<group>"; };
+		4CCD845917F8E9EB002396D7 /* apple.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = apple.wav; sourceTree = "<group>"; };
+		4CCD845B17F8EC25002396D7 /* suck.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = suck.wav; sourceTree = "<group>"; };
 		C2206C1A17F33D4000FE85FB /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		C2206C1B17F33D4100FE85FB /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		C2206C1C17F33D4100FE85FB /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -687,13 +695,13 @@
 				4C9089A717F39B2A003A936E /* Menu.m */,
 				C2BCF3E617EF658200F8ABE6 /* Player.h */,
 				C2BCF3E717EF658200F8ABE6 /* Player.m */,
-				4C9089B917F47A8F003A936E /* YouWon.h */,
-				4C9089BA17F47A8F003A936E /* YouWon.m */,
 				0B312F4217E85CF200D0829B /* Resources */,
 				0B312F5A17E85CF200D0829B /* libs */,
 				0B3130CE17E85CF400D0829B /* Supporting Files */,
 				4CCD844B17F8B401002396D7 /* HUDLayer.h */,
 				4CCD844C17F8B401002396D7 /* HUDLayer.m */,
+				4CCD845617F8E2A9002396D7 /* SoundEffects.h */,
+				4CCD845717F8E2A9002396D7 /* SoundEffects.m */,
 			);
 			path = "iOS App Dev";
 			sourceTree = "<group>";
@@ -701,6 +709,10 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4CCD845917F8E9EB002396D7 /* apple.wav */,
+				4CCD845B17F8EC25002396D7 /* suck.wav */,
+				4CCD845017F8E278002396D7 /* applause-8.wav */,
+				4CCD845217F8E278002396D7 /* coin-drop-4.wav */,
 				C24DCF7F17F8D738002FC1E5 /* newApple-hd.plist */,
 				C24DCF8017F8D738002FC1E5 /* newApple-hd.png */,
 				C24DCF8117F8D738002FC1E5 /* newApple-ipadhd.plist */,
@@ -1296,6 +1308,7 @@
 			files = (
 				4C9089B217F3B66E003A936E /* AppleSprite3.gif in Resources */,
 				4C9089CA17F4C5D8003A936E /* coinsSprite-ipadhd.plist in Resources */,
+				4CCD845317F8E278002396D7 /* applause-8.wav in Resources */,
 				C22C156017F37750000CD33D /* mirror.png in Resources */,
 				0B312F4417E85CF200D0829B /* Default.png in Resources */,
 				0B312F4617E85CF200D0829B /* Default@2x.png in Resources */,
@@ -1306,10 +1319,12 @@
 				C24DCF8917F8D738002FC1E5 /* newApple.plist in Resources */,
 				0B312F4A17E85CF200D0829B /* Default-Landscape~ipad.png in Resources */,
 				C2D0C88517EF9D3E00AF160A /* testDown.png in Resources */,
+				4CCD845A17F8E9EB002396D7 /* apple.wav in Resources */,
 				C29F3AEE17F6FAAA00523EA1 /* newCoins-ipadhd.png in Resources */,
 				0B312F4C17E85CF200D0829B /* Icon-72.png in Resources */,
 				C29F3AEB17F6FAAA00523EA1 /* newCoins-hd.plist in Resources */,
 				0B312F4E17E85CF200D0829B /* Icon-Small-50.png in Resources */,
+				4CCD845517F8E278002396D7 /* coin-drop-4.wav in Resources */,
 				C24DCF8817F8D738002FC1E5 /* newApple-ipadhd.png in Resources */,
 				4C9089CC17F4C5D8003A936E /* coinsSprite.plist in Resources */,
 				4C9089CD17F4C5D8003A936E /* coinsSprite.png in Resources */,
@@ -1334,6 +1349,7 @@
 				C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */,
 				C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */,
 				4C9089C817F4C5D8003A936E /* coinsSprite-hd.plist in Resources */,
+				4CCD845C17F8EC25002396D7 /* suck.wav in Resources */,
 				C29F3AEC17F6FAAA00523EA1 /* newCoins-hd.png in Resources */,
 				4C9089C017F4C5A2003A936E /* coinsSprite-ipadhd.png in Resources */,
 				C2BCF3F117EF6D0200F8ABE6 /* Config.plist in Resources */,
@@ -1359,7 +1375,6 @@
 				0B312F7617E85CF200D0829B /* CCActionManager.m in Sources */,
 				0B312F7917E85CF200D0829B /* CCActionPageTurn3D.m in Sources */,
 				0B312F7C17E85CF200D0829B /* CCActionProgressTimer.m in Sources */,
-				4C9089BB17F47A8F003A936E /* YouWon.m in Sources */,
 				0B312F7F17E85CF200D0829B /* CCActionTiledGrid.m in Sources */,
 				0B312F8217E85CF200D0829B /* CCActionTween.m in Sources */,
 				0B312F8517E85CF200D0829B /* CCAnimation.m in Sources */,
@@ -1380,6 +1395,7 @@
 				0B312FB317E85CF300D0829B /* CCGrid.m in Sources */,
 				0B312FB617E85CF300D0829B /* CCLabelAtlas.m in Sources */,
 				0B312FB917E85CF300D0829B /* CCLabelBMFont.m in Sources */,
+				4CCD845817F8E2A9002396D7 /* SoundEffects.m in Sources */,
 				0B312FBC17E85CF300D0829B /* CCLabelTTF.m in Sources */,
 				0B312FBF17E85CF300D0829B /* CCLayer.m in Sources */,
 				0B312FC317E85CF300D0829B /* CCMenu.m in Sources */,
