@@ -9,5 +9,10 @@
 #import "CCScene.h"
 
 @interface GameOver : CCScene
+{
+    
+}
+
+-(id) initGameOver:(NSInteger) playerScore : (BOOL) won;
 
 @end

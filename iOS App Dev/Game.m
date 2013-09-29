@@ -15,9 +15,6 @@
 #import "Coin.h"
 #import "Enemy.h"
 #import "GameOver.h"
-#import "YouWon.h"
-
-
 
 @implementation Game
 
@@ -92,8 +89,8 @@
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _goal.chipmunkBody) ||
         (firstChipBody == _goal.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"You hit the goal! =)");
-        YouWon *menu = [[YouWon alloc] init];
-        [[CCDirector sharedDirector] replaceScene:menu];
+        GameOver *gameOver = [[GameOver alloc] initGameOver:_player.playerScore :YES];
+        [[CCDirector sharedDirector] replaceScene:gameOver];
     }
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _coin.chipmunkBody) ||
         (firstChipBody == _coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {
@@ -104,7 +101,7 @@
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _enemy.chipmunkBody) ||
         (firstChipBody == _enemy.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"GAME OVER! =)");
-         GameOver *menu = [[GameOver alloc] init];
+        GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
         [[CCDirector sharedDirector] replaceScene:menu];
     }
     return YES;
@@ -201,7 +198,7 @@
         
         if(_player.position.x >= _landscapeWidth)
         {
-            GameOver *menu = [[GameOver alloc] init];
+            GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
             [[CCDirector sharedDirector] replaceScene:menu];
         }
         
