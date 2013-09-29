@@ -11,7 +11,8 @@
 @implementation Coin
     
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position{
-    self = [super initWithFile:@"coin1.png"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"newCoins-hd.plist"];
+    self = [super initWithSpriteFrameName:@"coin1.png"];
     if (self)  {
         CGSize size = self.textureRect.size;
         ChipmunkBody *body = [ChipmunkBody staticBody];
@@ -23,6 +24,17 @@
         
         body.data = self;
         self.chipmunkBody = body;
+        
+        NSMutableArray *coinAnimFrames = [NSMutableArray array];
+        for (int i=1; i<=8 ; i++) {
+            [coinAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"coin%d.png", i]
+              ]
+             ];
+        }
+        CCAnimation *coinAnim = [CCAnimation animationWithSpriteFrames:coinAnimFrames delay:0.1f];
+        _coinAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:coinAnim]];
     }
     return self;
     

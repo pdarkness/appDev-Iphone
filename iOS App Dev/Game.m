@@ -50,8 +50,11 @@
         [_gameNode addChild: _goal];
         
         //Add coin
+        CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
         _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(_config[@"coinPos"])];
-        [_gameNode addChild:_coin];
+        [_gameNode addChild:batchNode];
+        [_coin runAction:_coin.coinAction];
+        [batchNode addChild:_coin];
         
         //Add enemy
         _enemy = [[Enemy alloc] initWithSpace:_space position:CGPointFromString(_config[@"enemyPos"])];
@@ -66,30 +69,6 @@
         NSString *startPosition = _config[@"startPosition"];
         _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(startPosition)];
         [_gameNode addChild:_player];
-        
-        CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins.png"];
-        CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
-        [cache addSpriteFramesWithFile:@"newCoins.plist"];
-        
-        CCSprite *sp1 = [CCSprite spriteWithSpriteFrameName:@"coin1.png"];
-        [batchNode addChild:sp1];
-        [_gameNode addChild:batchNode];
-        
-        NSMutableArray *coinAnimFrames = [NSMutableArray array];
-        for (int i=1; i<=8 ; i++) {
-            [coinAnimFrames addObject:
-             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"coin%d.png", i]
-             ]
-            ];
-        }
-        CCAnimation *coinAnim = [CCAnimation animationWithSpriteFrames:coinAnimFrames delay:0.1f];
-        _coinA = [CCSprite spriteWithSpriteFrameName:@"coin1.png"];
-        _coinA.position = ccp(_winSize.width/2,_winSize.height/2);
-        _coinAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:coinAnim]];
-        [_coinA runAction:_coinAction];
-        [batchNode addChild:_coinA];
-        
         
         //Add inputLayer
         inputLayer *inputlayer = [[inputLayer alloc] init];
