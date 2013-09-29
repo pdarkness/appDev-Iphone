@@ -57,8 +57,11 @@
         [batchNode addChild:_coin];
         
         //Add enemy
+        CCSpriteBatchNode *appleBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
         _enemy = [[Enemy alloc] initWithSpace:_space position:CGPointFromString(_config[@"enemyPos"])];
-        [_gameNode addChild:_enemy];
+        [_gameNode addChild:appleBatchNode];
+        [_enemy runAction:_enemy.enemyAction];
+        [appleBatchNode addChild:_enemy];
         
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];

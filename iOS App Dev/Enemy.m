@@ -10,9 +10,38 @@
 
 
 @implementation Enemy
+/*
+ [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"newCoins-hd.plist"];
+ self = [super initWithSpriteFrameName:@"coin1.png"];
+ if (self)  {
+ CGSize size = self.textureRect.size;
+ ChipmunkBody *body = [ChipmunkBody staticBody];
+ body.pos = position;
+ ChipmunkShape *shape = [ChipmunkPolyShape boxWithBody:body width:size.width height:size.height];
+ shape.sensor = YES;
+ 
+ [space addShape:shape];
+ 
+ body.data = self;
+ self.chipmunkBody = body;
+ 
+ NSMutableArray *coinAnimFrames = [NSMutableArray array];
+ for (int i=1; i<=8 ; i++) {
+ [coinAnimFrames addObject:
+ [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+ [NSString stringWithFormat:@"coin%d.png", i]
+ ]
+ ];
+ }
+ CCAnimation *coinAnim = [CCAnimation animationWithSpriteFrames:coinAnimFrames delay:0.1f];
+ _coinAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:coinAnim]];
+ }
+ return self;
+*/
 
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position{
-    self = [super initWithFile:@"AppleSprite4.gif"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"newApple-hd.plist"];
+    self = [super initWithSpriteFrameName:@"AppleSprite1.png"];
     if (self)  {
         CGSize size = self.textureRect.size;
         ChipmunkBody *body = [ChipmunkBody staticBody];
@@ -26,6 +55,17 @@
         
         body.data = self;
         self.chipmunkBody = body;
+        
+        NSMutableArray *enemyAnimFrames = [NSMutableArray array];
+        for (int i=1; i<=7 ; i++) {
+            [enemyAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"AppleSprite%d.png", i]
+              ]
+             ];
+        }
+        CCAnimation *enemyAnim = [CCAnimation animationWithSpriteFrames:enemyAnimFrames delay:0.1f];
+        _enemyAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:enemyAnim]];
     }
     return self;
 }

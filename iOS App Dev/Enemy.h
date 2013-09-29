@@ -14,4 +14,7 @@
 }
 
 - (id)initWithSpace:(ChipmunkSpace * )space position:(CGPoint)position;
+
+@property (nonatomic, strong) CCAction *enemyAction;
+
 @end
