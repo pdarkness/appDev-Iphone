@@ -70,6 +70,8 @@
         _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(startPosition)];
         [_gameNode addChild:_player];
         
+        _sound = [[SoundEffects alloc] init];
+        
         //Add inputLayer
         inputLayer *inputlayer = [[inputLayer alloc] init];
         inputlayer.delegate = self;
@@ -89,18 +91,21 @@
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _goal.chipmunkBody) ||
         (firstChipBody == _goal.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"You hit the goal! =)");
+        [_sound playSounds:@"goal"];
         GameOver *gameOver = [[GameOver alloc] initGameOver:_player.playerScore :YES];
         [[CCDirector sharedDirector] replaceScene:gameOver];
     }
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _coin.chipmunkBody) ||
         (firstChipBody == _coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"You got the coin! =)");
+        [_sound playSounds:@"coin"];
         [_player updatePlayerScore:1000];
         [_coin removeFromParentAndCleanup:YES];
     }
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _enemy.chipmunkBody) ||
         (firstChipBody == _enemy.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"GAME OVER! =)");
+        [_sound playSounds:@"suck"];
         GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
         [[CCDirector sharedDirector] replaceScene:menu];
     }

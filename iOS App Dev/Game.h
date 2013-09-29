@@ -14,7 +14,9 @@
 #import "Coin.h"
 #import "Enemy.h"
 #import "HUDLayer.h"
+#import "SoundEffects.h"
 
+@class SoundEffects;
 @interface Game : CCScene <InputLayerDelgate>
 {
     CGSize _winSize;
@@ -33,6 +35,7 @@
     CGFloat _windSpeed;
     cpVect _impulseVector;
     HUDLayer *_hud;
+    SoundEffects *_sound;
 }
 
 @property (nonatomic, strong) CCSprite *coinA;
