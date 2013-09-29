@@ -202,7 +202,6 @@
         if (_player.position.x >= _winSize.width / 2 && _player.position.x <
             (_landscapeWidth - (_winSize.width / 2)))
         {
-           // [self updateLandscapeAndElements:delta];
             _parallaxNode.position = ccp(-(_player.position.x - (_winSize.width / 2)), 0);
             [self updateLandscapeAndElements:delta];
         }

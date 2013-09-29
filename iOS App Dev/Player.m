@@ -33,10 +33,26 @@
             
             // Add sprite
             self.chipmunkBody = body;
+            
+            // Initialize player score
+            self.playerScore = 0;
         }
     }
     return self;
 }
+
+// Update player score if he collides with a coin or some object
+- (NSInteger) updatePlayerScore:(NSInteger)score
+{
+    return self.playerScore += score;
+}
+
+// Update player score according to the distance he travels
+- (NSInteger) updatePlayerScore
+{
+    return self.playerScore++;
+}
+
 - (void)jump
 {
     _impulseVector = cpv(30*self.chipmunkBody.mass, 70*self.chipmunkBody.mass);

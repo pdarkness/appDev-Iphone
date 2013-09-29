@@ -15,8 +15,11 @@
     cpVect _impulseVector;
 }
 
+@property (nonatomic) NSInteger playerScore;
+
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
 - (void)jump;
 - (void)jumpWithPower:(CGFloat)power vector:(cpVect)vector;
-
+- (NSInteger) updatePlayerScore:(NSInteger) score;
+- (NSInteger) updatePlayerScore;
 @end
