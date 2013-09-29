@@ -12,6 +12,7 @@
 -(id)init
 {
     if ((self = [super init])) {
+        [self playBackgroundMusic:@"AppDevBackgroundMusic.mp3" loop:YES];
     }
     
     return self;

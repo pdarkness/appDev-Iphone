@@ -162,6 +162,7 @@
 		4CCD845817F8E2A9002396D7 /* SoundEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD845717F8E2A9002396D7 /* SoundEffects.m */; };
 		4CCD845A17F8E9EB002396D7 /* apple.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845917F8E9EB002396D7 /* apple.wav */; };
 		4CCD845C17F8EC25002396D7 /* suck.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845B17F8EC25002396D7 /* suck.wav */; };
+		4CCD845E17F8F0D0002396D7 /* AppDevBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845D17F8F0D0002396D7 /* AppDevBackgroundMusic.mp3 */; };
 		C2206C4517F33D4100FE85FB /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2206C4317F33D4100FE85FB /* libChipmunkPro-iPhone.a */; };
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
@@ -541,6 +542,7 @@
 		4CCD845717F8E2A9002396D7 /* SoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffects.m; sourceTree = "<group>"; };
 		4CCD845917F8E9EB002396D7 /* apple.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = apple.wav; sourceTree = "<group>"; };
 		4CCD845B17F8EC25002396D7 /* suck.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = suck.wav; sourceTree = "<group>"; };
+		4CCD845D17F8F0D0002396D7 /* AppDevBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppDevBackgroundMusic.mp3; sourceTree = "<group>"; };
 		C2206C1A17F33D4000FE85FB /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		C2206C1B17F33D4100FE85FB /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		C2206C1C17F33D4100FE85FB /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -709,6 +711,7 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4CCD845D17F8F0D0002396D7 /* AppDevBackgroundMusic.mp3 */,
 				4CCD845917F8E9EB002396D7 /* apple.wav */,
 				4CCD845B17F8EC25002396D7 /* suck.wav */,
 				4CCD845017F8E278002396D7 /* applause-8.wav */,
@@ -1346,6 +1349,7 @@
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
 				4C9089B017F3AAFF003A936E /* coin1.png in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
+				4CCD845E17F8F0D0002396D7 /* AppDevBackgroundMusic.mp3 in Resources */,
 				C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */,
 				C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */,
 				4C9089C817F4C5D8003A936E /* coinsSprite-hd.plist in Resources */,
