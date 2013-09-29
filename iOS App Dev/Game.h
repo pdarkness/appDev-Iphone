@@ -13,6 +13,7 @@
 #import "Goal.h"
 #import "Coin.h"
 #import "Enemy.h"
+#import "HUDLayer.h"
 
 @interface Game : CCScene <InputLayerDelgate>
 {
@@ -30,7 +31,8 @@
     Coin *_coin;
     Enemy *_enemy;
     CGFloat _windSpeed;
-    cpVect _impulseVector ;
+    cpVect _impulseVector;
+    HUDLayer *_hud;
 }
 
 @property (nonatomic, strong) CCSprite *coinA;

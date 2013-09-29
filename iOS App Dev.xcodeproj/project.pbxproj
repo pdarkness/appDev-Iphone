@@ -157,6 +157,7 @@
 		4C9089CA17F4C5D8003A936E /* coinsSprite-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C417F4C5D8003A936E /* coinsSprite-ipadhd.plist */; };
 		4C9089CC17F4C5D8003A936E /* coinsSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C617F4C5D8003A936E /* coinsSprite.plist */; };
 		4C9089CD17F4C5D8003A936E /* coinsSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C717F4C5D8003A936E /* coinsSprite.png */; };
+		4CCD844D17F8B401002396D7 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD844C17F8B401002396D7 /* HUDLayer.m */; };
 		C2206C4517F33D4100FE85FB /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2206C4317F33D4100FE85FB /* libChipmunkPro-iPhone.a */; };
 		C22C155E17F37432000CD33D /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = C22C155D17F37432000CD33D /* Goal.m */; };
 		C22C156017F37750000CD33D /* mirror.png in Resources */ = {isa = PBXBuildFile; fileRef = C22C155F17F37750000CD33D /* mirror.png */; };
@@ -524,6 +525,8 @@
 		4C9089C417F4C5D8003A936E /* coinsSprite-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "coinsSprite-ipadhd.plist"; sourceTree = "<group>"; };
 		4C9089C617F4C5D8003A936E /* coinsSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = coinsSprite.plist; sourceTree = "<group>"; };
 		4C9089C717F4C5D8003A936E /* coinsSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coinsSprite.png; sourceTree = "<group>"; };
+		4CCD844B17F8B401002396D7 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		4CCD844C17F8B401002396D7 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		C2206C1A17F33D4000FE85FB /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		C2206C1B17F33D4100FE85FB /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
 		C2206C1C17F33D4100FE85FB /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
@@ -677,6 +680,8 @@
 				0B312F4217E85CF200D0829B /* Resources */,
 				0B312F5A17E85CF200D0829B /* libs */,
 				0B3130CE17E85CF400D0829B /* Supporting Files */,
+				4CCD844B17F8B401002396D7 /* HUDLayer.h */,
+				4CCD844C17F8B401002396D7 /* HUDLayer.m */,
 			);
 			path = "iOS App Dev";
 			sourceTree = "<group>";
@@ -1374,6 +1379,7 @@
 				0B31300617E85CF300D0829B /* ccShaders.m in Sources */,
 				0B31300917E85CF300D0829B /* CCSprite.m in Sources */,
 				0B31300C17E85CF300D0829B /* CCSpriteBatchNode.m in Sources */,
+				4CCD844D17F8B401002396D7 /* HUDLayer.m in Sources */,
 				0B31300F17E85CF300D0829B /* CCSpriteFrame.m in Sources */,
 				0B31301217E85CF300D0829B /* CCSpriteFrameCache.m in Sources */,
 				0B31301517E85CF300D0829B /* CCTexture2D.m in Sources */,

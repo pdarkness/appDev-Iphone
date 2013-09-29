@@ -95,7 +95,7 @@
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _coin.chipmunkBody) ||
         (firstChipBody == _coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {
         NSLog(@"You got the coin! =)");
-        
+        [_player updatePlayerScore:1000];
         [_coin removeFromParentAndCleanup:YES];
     }
     if ((firstChipBody == _player.chipmunkBody && secChipBody == _enemy.chipmunkBody) ||
@@ -129,6 +129,14 @@
     _gameNode = [CCNode node];
     [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
+    _hud = [[HUDLayer alloc] init];
+    [_parallaxNode addChild:_hud z:4 parallaxRatio:ccp(1.0f,1.0f) positionOffset: ccp(0, 0)];
+    [self updateScore];
+}
+
+-(void) updateScore
+{
+    [_hud setScoreString:[NSString stringWithFormat:@"Score : %d", _player.playerScore]];
 }
 
 - (void)setupPhysicsLandscape
@@ -173,6 +181,7 @@
     
    // NSString *st = NSStringFromCGPoint(_player.position);
     //NSLog(st);
+    [self updateScore];
     if (_followPlayer == YES)
     {
         _impulseVector = cpv(_player.chipmunkBody.mass/50, _player.chipmunkBody.mass/10);
@@ -182,7 +191,9 @@
             (_landscapeWidth - (_winSize.width / 2)))
         {
             _parallaxNode.position = ccp(-(_player.position.x - (_winSize.width / 2)), 0);
+            [_hud updatePosition:ccp(_player.position.x + (_winSize.width * .35), _winSize.height * 0.9)];
             [self updateLandscapeAndElements:delta];
+            [_player updatePlayerScore];
         }
         
         if(_player.position.x >= _landscapeWidth)
