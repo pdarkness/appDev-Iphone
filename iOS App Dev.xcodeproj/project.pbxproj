@@ -156,6 +156,7 @@
 		4C9089CA17F4C5D8003A936E /* coinsSprite-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C417F4C5D8003A936E /* coinsSprite-ipadhd.plist */; };
 		4C9089CC17F4C5D8003A936E /* coinsSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C617F4C5D8003A936E /* coinsSprite.plist */; };
 		4C9089CD17F4C5D8003A936E /* coinsSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9089C717F4C5D8003A936E /* coinsSprite.png */; };
+		4CA880F517F9F0F7004073B6 /* top2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA880F417F9F0F7004073B6 /* top2.png */; };
 		4CCD844D17F8B401002396D7 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD844C17F8B401002396D7 /* HUDLayer.m */; };
 		4CCD845317F8E278002396D7 /* applause-8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845017F8E278002396D7 /* applause-8.wav */; };
 		4CCD845517F8E278002396D7 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD845217F8E278002396D7 /* coin-drop-4.wav */; };
@@ -542,6 +543,7 @@
 		4C9089C417F4C5D8003A936E /* coinsSprite-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "coinsSprite-ipadhd.plist"; sourceTree = "<group>"; };
 		4C9089C617F4C5D8003A936E /* coinsSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = coinsSprite.plist; sourceTree = "<group>"; };
 		4C9089C717F4C5D8003A936E /* coinsSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coinsSprite.png; sourceTree = "<group>"; };
+		4CA880F417F9F0F7004073B6 /* top2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top2.png; sourceTree = "<group>"; };
 		4CCD844B17F8B401002396D7 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		4CCD844C17F8B401002396D7 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		4CCD845017F8E278002396D7 /* applause-8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "applause-8.wav"; sourceTree = "<group>"; };
@@ -727,6 +729,7 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4CA880F417F9F0F7004073B6 /* top2.png */,
 				C2D9977317F907D200C82F8A /* top.png */,
 				C24DCF9917F9000A002FC1E5 /* ground2.png */,
 				C24DCF8B17F8F7BE002FC1E5 /* ghost-hd.plist */,
@@ -1383,6 +1386,7 @@
 				C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */,
 				C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */,
 				4C9089C817F4C5D8003A936E /* coinsSprite-hd.plist in Resources */,
+				4CA880F517F9F0F7004073B6 /* top2.png in Resources */,
 				C24DCF9217F8F7BE002FC1E5 /* ghost-hd.png in Resources */,
 				4CCD845C17F8EC25002396D7 /* suck.wav in Resources */,
 				C29F3AEC17F6FAAA00523EA1 /* newCoins-hd.png in Resources */,

@@ -128,8 +128,8 @@
     _landscapeWidth = bottom.contentSize.width;
     [_parallaxNode addChild:bottom z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
-    CCSprite *top = [CCSprite spriteWithFile:@"top.png"];
-    top.anchorPoint = ccp(0,-0.01f);
+    CCSprite *top = [CCSprite spriteWithFile:@"top2.png"];
+    top.anchorPoint = ccp(0,-1.31f);
     [_parallaxNode addChild:top z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
     _gameNode = [CCNode node];
@@ -157,13 +157,13 @@
     for (ChipmunkShape *shape in terrainShapes) {
         [_space addShape:shape];
     }
-    NSURL *url1 = [[NSBundle mainBundle] URLForResource:@"top" withExtension:@"png"];
+    NSURL *url1 = [[NSBundle mainBundle] URLForResource:@"top2" withExtension:@"png"];
     ChipmunkImageSampler *sampler1 = [ChipmunkImageSampler samplerWithImageFile:url1 isMask:NO];
     ChipmunkPolylineSet *contour1 = [sampler1 marchAllWithBorder:NO hard:YES];
     ChipmunkPolyline *line1 = [contour1 lineAtIndex:0];
     ChipmunkPolyline *simpleLine1 = [line1 simplifyCurves:1];
     ChipmunkBody *terrainBody1 = [ChipmunkBody staticBody];
-    NSArray * terrainShapes1 =  [simpleLine1 asChipmunkSegmentsWithBody:terrainBody1 radius:0 offset:cpvzero];
+    NSArray * terrainShapes1 =  [simpleLine1 asChipmunkSegmentsWithBody:terrainBody1 radius:0 offset:ccp(0, 184)];
     for (ChipmunkShape *shape1 in terrainShapes1) {
         [_space addShape:shape1];
     }
