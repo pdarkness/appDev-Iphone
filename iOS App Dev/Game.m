@@ -42,29 +42,14 @@
         // Collision handler
         [_space setDefaultCollisionHandler:self begin:@selector(CollisionStarted:space:) preSolve:nil postSolve:nil separate:nil];
         
+        // Create Elemntes
         [self createGoal];
         [self createCoins];
         [self createEnemys];
-        
-        
-        // Create our debug node
-        CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
-        debugNode.visible = YES;
-        [_gameNode addChild:debugNode];
-        
-        //Add player
-        CCSpriteBatchNode *playerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"ghost-hd.png"];
-        _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(_config[@"startPosition"])];
-        [_gameNode addChild:playerBatchNode];
-        [_player runAction:_player.playerAction];
-        [playerBatchNode addChild:_player];
-        
-        _sound = [[SoundEffects alloc] init];
-        
-        //Add inputLayer
-        inputLayer *inputlayer = [[inputLayer alloc] init];
-        inputlayer.delegate = self;
-        [self addChild:inputlayer];
+        [self createPlayer];
+        [self createDebugNode:YES];
+        [self initSound];
+        [self initInputLayer];
         
         [self scheduleUpdate];
     }
@@ -236,6 +221,37 @@
 -(void)updateLandscapeAndElements:(ccTime)delta
 {
     [self updatePhysicsLandscape];
+}
+
+
+-(void)initSound
+{
+    _sound = [[SoundEffects alloc] init];
+}
+
+-(void)initInputLayer
+{
+    //Add inputLayer
+    inputLayer *inputlayer = [[inputLayer alloc] init];
+    inputlayer.delegate = self;
+    [self addChild:inputlayer];
+}
+
+-(void)createDebugNode:(BOOL) ok
+{
+    // Create our debug node
+    CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
+    debugNode.visible = ok;
+    [_gameNode addChild:debugNode];
+}
+
+-(void)createPlayer
+{
+    CCSpriteBatchNode *playerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"ghost-hd.png"];
+    _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(_config[@"startPosition"])];
+    [_gameNode addChild:playerBatchNode];
+    [_player runAction:_player.playerAction];
+    [playerBatchNode addChild:_player];
 }
 
 -(void)createCoins
