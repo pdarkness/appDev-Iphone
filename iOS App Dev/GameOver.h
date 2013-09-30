@@ -10,9 +10,9 @@
 
 @interface GameOver : CCScene
 {
-    
+
 }
 
--(id) initGameOver:(NSInteger) playerScore : (BOOL) won;
+-(id) initGameOver:(NSInteger)playerScore :(BOOL)won;
 
 @end

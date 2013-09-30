@@ -198,6 +198,14 @@
 		C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D0C89017F0CCA900AF160A /* grass_lower2.png */; };
 		C2D0C8A017F0F94400AF160A /* grass_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D0C89F17F0F94400AF160A /* grass_up.png */; };
 		C2D9977417F907D200C82F8A /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D9977317F907D200C82F8A /* top.png */; };
+		C2D9977617FA348400C82F8A /* WaterSplash.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D9977517FA348400C82F8A /* WaterSplash.plist */; };
+		C2D9979417FA374000C82F8A /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D9979317FA374000C82F8A /* Star.m */; };
+		C2D9979B17FA392100C82F8A /* star-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D9979517FA392100C82F8A /* star-hd.plist */; };
+		C2D9979C17FA392100C82F8A /* star-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D9979617FA392100C82F8A /* star-hd.png */; };
+		C2D9979D17FA392100C82F8A /* star-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D9979717FA392100C82F8A /* star-ipadhd.plist */; };
+		C2D9979E17FA392100C82F8A /* star-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D9979817FA392100C82F8A /* star-ipadhd.png */; };
+		C2D9979F17FA392100C82F8A /* star.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D9979917FA392100C82F8A /* star.plist */; };
+		C2D997A017FA392100C82F8A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D9979A17FA392100C82F8A /* star.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -631,6 +639,15 @@
 		C2D0C89017F0CCA900AF160A /* grass_lower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_lower2.png; sourceTree = "<group>"; };
 		C2D0C89F17F0F94400AF160A /* grass_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_up.png; sourceTree = "<group>"; };
 		C2D9977317F907D200C82F8A /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		C2D9977517FA348400C82F8A /* WaterSplash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaterSplash.plist; sourceTree = "<group>"; };
+		C2D9979217FA374000C82F8A /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
+		C2D9979317FA374000C82F8A /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
+		C2D9979517FA392100C82F8A /* star-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "star-hd.plist"; sourceTree = "<group>"; };
+		C2D9979617FA392100C82F8A /* star-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-hd.png"; sourceTree = "<group>"; };
+		C2D9979717FA392100C82F8A /* star-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "star-ipadhd.plist"; sourceTree = "<group>"; };
+		C2D9979817FA392100C82F8A /* star-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-ipadhd.png"; sourceTree = "<group>"; };
+		C2D9979917FA392100C82F8A /* star.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = star.plist; sourceTree = "<group>"; };
+		C2D9979A17FA392100C82F8A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,6 +718,12 @@
 				4C9089AB17F3A418003A936E /* Coin.m */,
 				4C9089B317F456DA003A936E /* Enemy.h */,
 				4C9089B417F456DA003A936E /* Enemy.m */,
+				4CCD844B17F8B401002396D7 /* HUDLayer.h */,
+				4CCD844C17F8B401002396D7 /* HUDLayer.m */,
+				4CCD845617F8E2A9002396D7 /* SoundEffects.h */,
+				4CCD845717F8E2A9002396D7 /* SoundEffects.m */,
+				C2D9979217FA374000C82F8A /* Star.h */,
+				C2D9979317FA374000C82F8A /* Star.m */,
 				0B3130D817E85CF400D0829B /* IntroLayer.h */,
 				0B3130D917E85CF400D0829B /* IntroLayer.m */,
 				C2D0C88117EF8F2400AF160A /* InputLayer.h */,
@@ -718,10 +741,6 @@
 				0B312F4217E85CF200D0829B /* Resources */,
 				0B312F5A17E85CF200D0829B /* libs */,
 				0B3130CE17E85CF400D0829B /* Supporting Files */,
-				4CCD844B17F8B401002396D7 /* HUDLayer.h */,
-				4CCD844C17F8B401002396D7 /* HUDLayer.m */,
-				4CCD845617F8E2A9002396D7 /* SoundEffects.h */,
-				4CCD845717F8E2A9002396D7 /* SoundEffects.m */,
 			);
 			path = "iOS App Dev";
 			sourceTree = "<group>";
@@ -729,6 +748,13 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C2D9979517FA392100C82F8A /* star-hd.plist */,
+				C2D9979617FA392100C82F8A /* star-hd.png */,
+				C2D9979717FA392100C82F8A /* star-ipadhd.plist */,
+				C2D9979817FA392100C82F8A /* star-ipadhd.png */,
+				C2D9979917FA392100C82F8A /* star.plist */,
+				C2D9979A17FA392100C82F8A /* star.png */,
+				C2D9977517FA348400C82F8A /* WaterSplash.plist */,
 				4CA880F417F9F0F7004073B6 /* top2.png */,
 				C2D9977317F907D200C82F8A /* top.png */,
 				C24DCF9917F9000A002FC1E5 /* ground2.png */,
@@ -1354,6 +1380,7 @@
 				4CCD845A17F8E9EB002396D7 /* apple.wav in Resources */,
 				C29F3AEE17F6FAAA00523EA1 /* newCoins-ipadhd.png in Resources */,
 				0B312F4C17E85CF200D0829B /* Icon-72.png in Resources */,
+				C2D9979D17FA392100C82F8A /* star-ipadhd.plist in Resources */,
 				C29F3AEB17F6FAAA00523EA1 /* newCoins-hd.plist in Resources */,
 				0B312F4E17E85CF200D0829B /* Icon-Small-50.png in Resources */,
 				4CCD845517F8E278002396D7 /* coin-drop-4.wav in Resources */,
@@ -1361,6 +1388,7 @@
 				4C9089CC17F4C5D8003A936E /* coinsSprite.plist in Resources */,
 				4C9089CD17F4C5D8003A936E /* coinsSprite.png in Resources */,
 				C29F3AED17F6FAAA00523EA1 /* newCoins-ipadhd.plist in Resources */,
+				C2D9979C17FA392100C82F8A /* star-hd.png in Resources */,
 				0B312F5017E85CF200D0829B /* Icon-Small.png in Resources */,
 				C2D0C8A017F0F94400AF160A /* grass_up.png in Resources */,
 				C24DCF8617F8D738002FC1E5 /* newApple-hd.png in Resources */,
@@ -1380,19 +1408,24 @@
 				C2D9977417F907D200C82F8A /* top.png in Resources */,
 				C29F3AF017F6FAAA00523EA1 /* newCoins.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
+				C2D9979B17FA392100C82F8A /* star-hd.plist in Resources */,
 				4C9089B017F3AAFF003A936E /* coin1.png in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
 				4CCD845E17F8F0D0002396D7 /* AppDevBackgroundMusic.mp3 in Resources */,
+				C2D9977617FA348400C82F8A /* WaterSplash.plist in Resources */,
 				C2D0C89117F0CCA900AF160A /* grass_lower2.png in Resources */,
 				C2BBFB3B17F4755000981C75 /* AppleSprite4.gif in Resources */,
+				C2D997A017FA392100C82F8A /* star.png in Resources */,
 				4C9089C817F4C5D8003A936E /* coinsSprite-hd.plist in Resources */,
 				4CA880F517F9F0F7004073B6 /* top2.png in Resources */,
+				C2D9979F17FA392100C82F8A /* star.plist in Resources */,
 				C24DCF9217F8F7BE002FC1E5 /* ghost-hd.png in Resources */,
 				4CCD845C17F8EC25002396D7 /* suck.wav in Resources */,
 				C29F3AEC17F6FAAA00523EA1 /* newCoins-hd.png in Resources */,
 				4C9089C017F4C5A2003A936E /* coinsSprite-ipadhd.png in Resources */,
 				C2BCF3F117EF6D0200F8ABE6 /* Config.plist in Resources */,
 				C24DCF9417F8F7BE002FC1E5 /* ghost-ipadhd.png in Resources */,
+				C2D9979E17FA392100C82F8A /* star-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1410,6 +1443,7 @@
 				C2D0C88317EF8F2400AF160A /* InputLayer.m in Sources */,
 				0B312F6A17E85CF200D0829B /* CCActionGrid.m in Sources */,
 				0B312F6D17E85CF200D0829B /* CCActionGrid3D.m in Sources */,
+				C2D9979417FA374000C82F8A /* Star.m in Sources */,
 				0B312F7017E85CF200D0829B /* CCActionInstant.m in Sources */,
 				0B312F7317E85CF200D0829B /* CCActionInterval.m in Sources */,
 				0B312F7617E85CF200D0829B /* CCActionManager.m in Sources */,

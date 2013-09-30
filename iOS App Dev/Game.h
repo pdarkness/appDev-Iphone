@@ -37,8 +37,11 @@
     HUDLayer *_hud;
     SoundEffects *_sound;
     CCSpriteBatchNode *_enemyBatchNode;
+    CCSpriteBatchNode *_starBatchNode;
     CCSpriteBatchNode *_coinBatchNode;
 }
+
+- (id)initWithPoints:(NSInteger)totalPointsBeforeThisGame;
 
 @property (nonatomic, strong) CCSprite *coinA;
 @property (nonatomic, strong) CCAction *coinAction;

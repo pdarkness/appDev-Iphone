@@ -69,14 +69,13 @@
 - (void)jump
 {
     _impulseVector = cpv(30*self.chipmunkBody.mass, 70*self.chipmunkBody.mass);
-    
     [self.chipmunkBody applyImpulse:_impulseVector offset:cpvzero];
 }
 
 
 - (void)jumpWithPower:(CGFloat)power vector:(cpVect)vector
 {
-   // vector = ccp(0, 35535);
+    vector = ccp(0, 35535);
     cpVect impulseVector = cpvmult(vector, self.chipmunkBody.mass * power);
     [self.chipmunkBody applyImpulse:impulseVector offset:cpvzero];
 }

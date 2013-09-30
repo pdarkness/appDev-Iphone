@@ -15,6 +15,7 @@
 #import "Coin.h"
 #import "Enemy.h"
 #import "GameOver.h"
+#import "Star.h"
 
 @implementation Game
 
@@ -44,9 +45,48 @@
         
         // Create Elemntes
         [self createGoal];
+        [self createStars];
         [self createCoins];
         [self createEnemys];
         [self createPlayer];
+        [self createDebugNode:YES];
+        [self initSound];
+        [self initInputLayer];
+        
+        [self scheduleUpdate];
+    }
+    return self;
+}
+
+- (id)initWithPoints:(NSInteger)totalPointsBeforeThisGame
+{
+    self = [super init];
+    if (self)
+    {
+        _config = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
+                                                              pathForResource:@"Config" ofType:@"plist"]];
+        _winSize = [CCDirector sharedDirector].winSize;
+        
+        // ChipmunkSpace physics
+        _space = [[ChipmunkSpace alloc] init];
+        CGFloat gravity = [_config[@"gravity"] floatValue];
+        _space.gravity = ccp(0.0f, -gravity);
+        
+        // Setup world
+        [self generateRandomWind];
+        [self setupLandscape];
+        [self setupPhysicsLandscape];
+        
+        // Collision handler
+        [_space setDefaultCollisionHandler:self begin:@selector(CollisionStarted:space:) preSolve:nil postSolve:nil separate:nil];
+        
+        // Create Elemntes
+        [self createGoal];
+        [self createStars];
+        [self createCoins];
+        [self createEnemys];
+        [self createPlayer];
+        _player.playerScore = totalPointsBeforeThisGame;
         [self createDebugNode:YES];
         [self initSound];
         [self initInputLayer];
@@ -81,6 +121,13 @@
         [_sound playSounds:@"suck"];
         GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
         [[CCDirector sharedDirector] replaceScene:menu];
+    }
+    if ([self collisionWithStar:arbiter]) {
+        NSLog(@"You got a star jei =D");
+        cpVect vec = _player.position;
+        vec.x += 35000;
+        
+        [[_player chipmunkBody] applyForce:vec offset:cpvzero];
     }
     return YES;
 }
@@ -213,6 +260,23 @@
     return NO;
 }
 
+-(bool) collisionWithStar:(cpArbiter *)arbiter
+{
+    cpBody *firstBody;
+    cpBody *secondBody;
+    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
+    ChipmunkBody *firstChipBody = firstBody->data;
+    ChipmunkBody *secChipBody = secondBody->data;
+    for (Star *star in _starBatchNode.children) {
+        if ((firstChipBody == _player.chipmunkBody && secChipBody == star.chipmunkBody) ||
+            (firstChipBody == star.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
 -(void)updatePhysicsLandscape
 {
 
@@ -292,6 +356,21 @@
     }
 }
 
+-(void)createStars
+{
+    //Add stars
+    _starBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"star.png"];
+    [_gameNode addChild:_starBatchNode];
+    for (int i = 0; i < 10; i++) {
+        //Add enemy
+        //CCSpriteBatchNode *enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
+        Star *st = [[Star alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * _winSize.height))];
+        [st runAction:st.starAction];
+        [_starBatchNode addChild:st];
+    }
+}
+
+
 -(void)createGoal
 {
     _goal = [[Goal alloc] initWithSpace:_space position:CGPointFromString(_config[@"goalPos"])];
@@ -302,12 +381,11 @@
 
 - (void)touchEndedAtPosition:(CGPoint)position afterDelay:(NSTimeInterval)delay
 {
-    position = [_gameNode convertToNodeSpace:position];
-    NSLog(@"touch: %@", NSStringFromCGPoint(position));
-    NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
+    //position = [_gameNode convertToNodeSpace:position];
+   // NSLog(@"touch: %@", NSStringFromCGPoint(position));
+    //NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
     _followPlayer = YES;
-    cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
-
+    //cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
     [_player jump];
 }
 @end
