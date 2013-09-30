@@ -13,6 +13,7 @@
 {
     if ((self = [super init])) {
         [self playBackgroundMusic:@"AppDevBackgroundMusic.mp3" loop:YES];
+        self.backgroundMusicVolume  = 0.2f;
     }
     
     return self;
