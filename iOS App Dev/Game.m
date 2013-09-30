@@ -123,14 +123,13 @@
     _parallaxNode = [CCParallaxNode node];
     [self addChild:_parallaxNode];
     
-    CCSprite *bottom = [CCSprite spriteWithFile:@"grass_lower2.png"];
+    CCSprite *bottom = [CCSprite spriteWithFile:@"ground2.png"];
     bottom.anchorPoint = ccp(0, 0);
     _landscapeWidth = bottom.contentSize.width;
     [_parallaxNode addChild:bottom z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
-    CCSprite *top = [CCSprite spriteWithFile:@"grass_up2.png"];
-    top.anchorPoint = ccp(0,-1.11f);
-    _landscapeWidth = top.contentSize.width;
+    CCSprite *top = [CCSprite spriteWithFile:@"top.png"];
+    top.anchorPoint = ccp(0,-0.01f);
     [_parallaxNode addChild:top z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
     _gameNode = [CCNode node];
@@ -148,7 +147,7 @@
 
 - (void)setupPhysicsLandscape
 {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"grass_lower2" withExtension:@"png"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"ground2" withExtension:@"png"];
     ChipmunkImageSampler *sampler = [ChipmunkImageSampler samplerWithImageFile:url isMask:NO];
     ChipmunkPolylineSet *contour = [sampler marchAllWithBorder:NO hard:YES];
     ChipmunkPolyline *line = [contour lineAtIndex:0];
@@ -158,13 +157,13 @@
     for (ChipmunkShape *shape in terrainShapes) {
         [_space addShape:shape];
     }
-    NSURL *url1 = [[NSBundle mainBundle] URLForResource:@"grass_up2" withExtension:@"png"];
+    NSURL *url1 = [[NSBundle mainBundle] URLForResource:@"top" withExtension:@"png"];
     ChipmunkImageSampler *sampler1 = [ChipmunkImageSampler samplerWithImageFile:url1 isMask:NO];
     ChipmunkPolylineSet *contour1 = [sampler1 marchAllWithBorder:NO hard:YES];
     ChipmunkPolyline *line1 = [contour1 lineAtIndex:0];
     ChipmunkPolyline *simpleLine1 = [line1 simplifyCurves:1];
     ChipmunkBody *terrainBody1 = [ChipmunkBody staticBody];
-    NSArray * terrainShapes1 =  [simpleLine1 asChipmunkSegmentsWithBody:terrainBody1 radius:0 offset:ccp(0, 168)];
+    NSArray * terrainShapes1 =  [simpleLine1 asChipmunkSegmentsWithBody:terrainBody1 radius:0 offset:cpvzero];
     for (ChipmunkShape *shape1 in terrainShapes1) {
         [_space addShape:shape1];
     }
@@ -191,9 +190,8 @@
     [self updateScore];
     if (_followPlayer == YES)
     {
-        _impulseVector = cpv(_player.chipmunkBody.mass/50, _player.chipmunkBody.mass/10);
-        
-        [_player.chipmunkBody applyForce:_impulseVector offset:cpvzero];
+        //_impulseVector = cpv(_player.chipmunkBody.mass/50, _player.chipmunkBody.mass/10);
+        //[_player.chipmunkBody applyForce:_impulseVector offset:cpvzero];
         if (_player.position.x >= _winSize.width / 2 && _player.position.x <
             (_landscapeWidth - (_winSize.width / 2)))
         {
