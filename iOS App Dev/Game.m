@@ -54,11 +54,11 @@
         [batchNode addChild:_coin];
         
         //Add enemy
-        CCSpriteBatchNode *appleBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
+        CCSpriteBatchNode *enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
         _enemy = [[Enemy alloc] initWithSpace:_space position:CGPointFromString(_config[@"enemyPos"])];
-        [_gameNode addChild:appleBatchNode];
+        [_gameNode addChild:enemyBatchNode];
         [_enemy runAction:_enemy.enemyAction];
-        [appleBatchNode addChild:_enemy];
+        [enemyBatchNode addChild:_enemy];
         
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
@@ -66,9 +66,11 @@
         [_gameNode addChild:debugNode];
         
         //Add player
-        NSString *startPosition = _config[@"startPosition"];
-        _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(startPosition)];
-        [_gameNode addChild:_player];
+        CCSpriteBatchNode *playerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"ghost-hd.png"];
+        _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(_config[@"startPosition"])];
+        [_gameNode addChild:playerBatchNode];
+        [_player runAction:_player.playerAction];
+        [playerBatchNode addChild:_player];
         
         _sound = [[SoundEffects alloc] init];
         

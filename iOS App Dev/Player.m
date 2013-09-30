@@ -12,7 +12,8 @@
 
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
 {
-    self = [super initWithFile:@"devil.gif"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ghost-hd.plist"];
+    self = [super initWithSpriteFrameName:@"mon1.png"];
     if (self)
     {
         _space = space;
@@ -36,6 +37,18 @@
             
             // Initialize player score
             self.playerScore = 0;
+            
+            NSMutableArray *playerAnimFrames = [NSMutableArray array];
+            for (int i=1; i<=5 ; i++) {
+                [playerAnimFrames addObject:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                  [NSString stringWithFormat:@"mon%d.png", i]
+                  ]
+                 ];
+            }
+            CCAnimation *playerAnim = [CCAnimation animationWithSpriteFrames:playerAnimFrames delay:0.1f];
+            _playerAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:playerAnim]];
+
         }
     }
     return self;

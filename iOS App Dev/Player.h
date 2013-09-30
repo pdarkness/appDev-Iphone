@@ -15,6 +15,7 @@
     cpVect _impulseVector;
 }
 
+@property (nonatomic, strong) CCAction *playerAction;
 @property (nonatomic) NSInteger playerScore;
 
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
