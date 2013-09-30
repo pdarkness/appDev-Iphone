@@ -36,6 +36,8 @@
     cpVect _impulseVector;
     HUDLayer *_hud;
     SoundEffects *_sound;
+    CCSpriteBatchNode *_enemyBatchNode;
+    CCSpriteBatchNode *_coinBatchNode;
 }
 
 @property (nonatomic, strong) CCSprite *coinA;

@@ -42,23 +42,10 @@
         // Collision handler
         [_space setDefaultCollisionHandler:self begin:@selector(CollisionStarted:space:) preSolve:nil postSolve:nil separate:nil];
         
-        // Add goal
-        _goal = [[Goal alloc] initWithSpace:_space position:CGPointFromString(_config[@"goalPos"])];
-        [_gameNode addChild: _goal];
+        [self createGoal];
+        [self createCoins];
+        [self createEnemys];
         
-        //Add coin
-        CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
-        _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(_config[@"coinPos"])];
-        [_gameNode addChild:batchNode];
-        [_coin runAction:_coin.coinAction];
-        [batchNode addChild:_coin];
-        
-        //Add enemy
-        CCSpriteBatchNode *enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
-        _enemy = [[Enemy alloc] initWithSpace:_space position:CGPointFromString(_config[@"enemyPos"])];
-        [_gameNode addChild:enemyBatchNode];
-        [_enemy runAction:_enemy.enemyAction];
-        [enemyBatchNode addChild:_enemy];
         
         // Create our debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
@@ -85,6 +72,7 @@
 }
 
 - (bool)CollisionStarted:(cpArbiter *)arbiter space:(ChipmunkSpace*)space {
+    Coin *coin;
     cpBody *firstBody;
     cpBody *secondBody;
     cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
@@ -97,15 +85,13 @@
         GameOver *gameOver = [[GameOver alloc] initGameOver:_player.playerScore :YES];
         [[CCDirector sharedDirector] replaceScene:gameOver];
     }
-    if ((firstChipBody == _player.chipmunkBody && secChipBody == _coin.chipmunkBody) ||
-        (firstChipBody == _coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+    if ((coin = [self collisionWithCoins:arbiter])) {
         NSLog(@"You got the coin! =)");
         [_sound playSounds:@"coin"];
         [_player updatePlayerScore:1000];
-        [_coin removeFromParentAndCleanup:YES];
+        [coin removeFromParentAndCleanup:YES];
     }
-    if ((firstChipBody == _player.chipmunkBody && secChipBody == _enemy.chipmunkBody) ||
-        (firstChipBody == _enemy.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+    if ([self collisionWithEnemys:arbiter]) {
         NSLog(@"GAME OVER! =)");
         [_sound playSounds:@"suck"];
         GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
@@ -210,6 +196,38 @@
     }
 }
 
+-(Coin *)collisionWithCoins:(cpArbiter *)arbiter
+{
+    cpBody *firstBody;
+    cpBody *secondBody;
+    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
+    ChipmunkBody *firstChipBody = firstBody->data;
+    ChipmunkBody *secChipBody = secondBody->data;
+    for (Coin *coin in _coinBatchNode.children) {
+        if ((firstChipBody == _player.chipmunkBody && secChipBody == coin.chipmunkBody) ||
+            (firstChipBody == coin.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+            return coin;
+        }
+    }
+    return nil;
+}
+
+-(bool) collisionWithEnemys:(cpArbiter *)arbiter
+{
+    cpBody *firstBody;
+    cpBody *secondBody;
+    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
+    ChipmunkBody *firstChipBody = firstBody->data;
+    ChipmunkBody *secChipBody = secondBody->data;
+    for (Enemy *enm in _enemyBatchNode.children) {
+        if ((firstChipBody == _player.chipmunkBody && secChipBody == enm.chipmunkBody) ||
+            (firstChipBody == enm.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 -(void)updatePhysicsLandscape
 {
 
@@ -218,7 +236,50 @@
 -(void)updateLandscapeAndElements:(ccTime)delta
 {
     [self updatePhysicsLandscape];
-    //_landscapeWidth += 50;
+}
+
+-(void)createCoins
+{
+    //Add coin
+    _coinBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
+    _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(_config[@"coinPos"])];
+    [_gameNode addChild:_coinBatchNode];
+    [_coin runAction:_coin.coinAction];
+    [_coinBatchNode addChild:_coin];
+    
+    for (int i = 0; i < 30; i++) {
+        CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
+        _coin = [[Coin alloc] initWithSpace:_space position:ccp(CCRANDOM_0_1() * _landscapeWidth, CCRANDOM_0_1() * _winSize.height)];
+        [_gameNode addChild:batchNode];
+        [_coin runAction:_coin.coinAction];
+        [_coinBatchNode addChild:_coin];
+        
+    }
+}
+
+-(void)createEnemys
+{
+    //Add enemy
+    _enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
+    _enemy = [[Enemy alloc] init];
+    Enemy *enem = [[Enemy alloc] initWithSpace:_space position:CGPointFromString(_config[@"enemyPos"])];
+    [_gameNode addChild:_enemyBatchNode];
+    [enem runAction:enem.enemyAction];
+    [_enemyBatchNode addChild:enem];
+    for (int i = 0; i < 10; i++) {
+        //Add enemy
+        CCSpriteBatchNode *enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
+        Enemy *en = [[Enemy alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * _winSize.height))];
+        [_gameNode addChild:enemyBatchNode];
+        [en runAction:en.enemyAction];
+        [_enemyBatchNode addChild:en];
+    }
+}
+
+-(void)createGoal
+{
+    _goal = [[Goal alloc] initWithSpace:_space position:CGPointFromString(_config[@"goalPos"])];
+    [_gameNode addChild: _goal];
 }
 
 #pragma mark - My Touch Delegate Methods

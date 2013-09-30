@@ -26,11 +26,9 @@
     if ((self = [super init])) {
         CGSize winSize = [CCDirector sharedDirector].winSize;
         _scoreLabel = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize: 17];
-        
         _scoreLabel.position = ccp(winSize.width * 0.85, winSize.height * 0.9);
         [self addChild:_scoreLabel];
     }
-    
     return self;
 }
 
