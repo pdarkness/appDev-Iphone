@@ -126,6 +126,7 @@
     }
     if ([self collisionWithStar:arbiter]) {
         NSLog(@"You got a star jei =D");
+        [_sound playSounds:@"star"];
         cpVect vec = _player.position;
         vec.x += 35000;
         [[_player chipmunkBody] applyForce:vec offset:cpvzero];
