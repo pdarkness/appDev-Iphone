@@ -36,7 +36,7 @@
     } else if ([string isEqualToString:@"goal"]) {
         return @"applause-8.wav";
     } else if ([string isEqualToString:@"star"]) {
-        return @"star.wav";
+        return @"star1.wav";
     }else {
         return @"";
     }
