@@ -27,6 +27,7 @@
     CCParallaxNode *_parallaxNode;
     CGFloat _landscapeWidth;
     CCNode *_gameNode;
+    CCParticleSystemQuad *_splashParticles;
     ChipmunkSpace *_space;
     ccTime _accumulator;
     Goal *_goal;

@@ -46,6 +46,7 @@
         // Create Elemntes
         [self createGoal];
         [self createStars];
+        [self createParticleSystem];
         [self createCoins];
         [self createEnemys];
         [self createPlayer];
@@ -83,6 +84,7 @@
         // Create Elemntes
         [self createGoal];
         [self createStars];
+        [self createParticleSystem];
         [self createCoins];
         [self createEnemys];
         [self createPlayer];
@@ -230,6 +232,15 @@
     }
 }
 
+- (void)createParticleSystem
+{
+    // Setup particle system
+    _splashParticles = [CCParticleSystemQuad particleWithFile:@"WaterSplash.plist"];
+    _splashParticles.position = _goal.position;
+    [_splashParticles stopSystem];
+    [_gameNode addChild:_splashParticles];
+}
+
 -(Coin *)collisionWithCoins:(cpArbiter *)arbiter
 {
     cpBody *firstBody;
@@ -326,18 +337,13 @@
 {
     //Add coin
     _coinBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
-    _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(_config[@"coinPos"])];
+    CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
     [_gameNode addChild:_coinBatchNode];
-    [_coin runAction:_coin.coinAction];
-    [_coinBatchNode addChild:_coin];
-    
-    for (int i = 0; i < 30; i++) {
-        CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
+    [_gameNode addChild:batchNode];
+    for (int i = 0; i < 20; i++) {
         _coin = [[Coin alloc] initWithSpace:_space position:ccp(CCRANDOM_0_1() * _landscapeWidth, CCRANDOM_0_1() * _winSize.height)];
-        [_gameNode addChild:batchNode];
         [_coin runAction:_coin.coinAction];
         [_coinBatchNode addChild:_coin];
-        
     }
 }
 
@@ -345,16 +351,9 @@
 {
     //Add enemy
     _enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
-    _enemy = [[Enemy alloc] init];
-    Enemy *enem = [[Enemy alloc] initWithSpace:_space position:CGPointFromString(_config[@"enemyPos"])];
     [_gameNode addChild:_enemyBatchNode];
-    [enem runAction:enem.enemyAction];
-    [_enemyBatchNode addChild:enem];
-    for (int i = 0; i < 10; i++) {
-        //Add enemy
-        CCSpriteBatchNode *enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
+    for (int i = 0; i < 8; i++) {
         Enemy *en = [[Enemy alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * _winSize.height))];
-        [_gameNode addChild:enemyBatchNode];
         [en runAction:en.enemyAction];
         [_enemyBatchNode addChild:en];
     }
@@ -365,7 +364,7 @@
     //Add stars
     _starBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"star.png"];
     [_gameNode addChild:_starBatchNode];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 3; i++) {
         //Add enemy
         //CCSpriteBatchNode *enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
         Star *st = [[Star alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * _winSize.height))];
@@ -397,7 +396,7 @@
 -(CGPoint) touchedPositionAgainstPlayer: (CGPoint)position
 {
     if (position.x < _player.position.x) {
-        position.x += _player.position.x;
+        position.x += _winSize.width/2;
     }
     return position;
 }
