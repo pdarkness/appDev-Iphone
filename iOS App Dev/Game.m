@@ -105,7 +105,7 @@
     if ([self collisionWithGoal:arbiter]) {
         NSLog(@"You hit the goal! =)");
         [_sound playSounds:@"goal"];
-        [self performSelector:@selector(gameOverAndWon) withObject:nil afterDelay:0.3];
+        [self performSelector:@selector(gameOverAndWon) withObject:nil];
     }
     if ((coin = [self collisionWithCoins:arbiter])) {
         NSLog(@"You got the coin! =)");
@@ -116,7 +116,7 @@
     if ([self collisionWithEnemys:arbiter]) {
         NSLog(@"GAME OVER! =)");
         [_sound playSounds:@"suck"];
-        [self performSelector:@selector(gameOverAndNotWon) withObject:_goal afterDelay:1.0];
+        [self performSelector:@selector(gameOverAndNotWon) withObject:_goal afterDelay:0.1];
     }
     if ([self collisionWithStar:arbiter]) {
         NSLog(@"You got a star jei =D");
