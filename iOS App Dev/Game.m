@@ -196,6 +196,7 @@
 
 - (void)update:(ccTime)delta
 {
+    CGFloat oldPlayerPositionX = _player.position.x;
     CGFloat fixedTimeStep = 1.0f / 240.0f;
     _accumulator += delta;
     while (_accumulator > fixedTimeStep) {
@@ -216,7 +217,8 @@
             _parallaxNode.position = ccp(-(_player.position.x - (_winSize.width / 2)), 0);
             [_hud updatePosition:ccp(_player.position.x + (_winSize.width * .35), _winSize.height * 0.9)];
             [self updateLandscapeAndElements:delta];
-            [_player updatePlayerScore];
+            if(oldPlayerPositionX < _player.position.x)
+                [_player updatePlayerScore];
         }
         
         if(_player.position.x >= _landscapeWidth)
@@ -315,6 +317,8 @@
     _player = [[Player alloc] initWithSpace:_space position:CGPointFromString(_config[@"startPosition"])];
     [_gameNode addChild:playerBatchNode];
     [_player runAction:_player.playerAction];
+    _impulseVector = cpv(_player.position.x+100, _player.position.y);
+    [_player.chipmunkBody applyForce:_impulseVector offset:cpvzero];
     [playerBatchNode addChild:_player];
 }
 
@@ -385,7 +389,16 @@
    // NSLog(@"touch: %@", NSStringFromCGPoint(position));
     //NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
     _followPlayer = YES;
-    //cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
-    [_player jump];
+
+    cpVect normalizedVector = cpvnormalize(cpvsub([self touchedPositionAgainstPlayer:position], _player.position));
+
+    [_player jumpWithPower:delay*1000 vector:normalizedVector];
+}
+-(CGPoint) touchedPositionAgainstPlayer: (CGPoint)position
+{
+    if (position.x < _player.position.x) {
+        position.x += _player.position.x;
+    }
+    return position;
 }
 @end
