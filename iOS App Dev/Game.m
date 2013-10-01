@@ -46,11 +46,12 @@
         // Create Elemntes
         [self createGoal];
         [self createStars];
-        [self createParticleSystem];
+        [self createParticleSystemWater];
+        [self createParticleSystemFire];
         [self createCoins];
         [self createEnemys];
         [self createPlayer];
-        [self createDebugNode:YES];
+        [self createDebugNode:NO];
         [self initSound];
         [self initInputLayer];
         
@@ -84,12 +85,13 @@
         // Create Elemntes
         [self createGoal];
         [self createStars];
-        [self createParticleSystem];
+        [self createParticleSystemWater];
+        [self createParticleSystemFire];
         [self createCoins];
         [self createEnemys];
         [self createPlayer];
         _player.playerScore = totalPointsBeforeThisGame;
-        [self createDebugNode:YES];
+        [self createDebugNode:NO];
         [self initSound];
         [self initInputLayer];
         
@@ -100,17 +102,10 @@
 
 - (bool)CollisionStarted:(cpArbiter *)arbiter space:(ChipmunkSpace*)space {
     Coin *coin;
-    cpBody *firstBody;
-    cpBody *secondBody;
-    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
-    ChipmunkBody *firstChipBody = firstBody->data;
-    ChipmunkBody *secChipBody = secondBody->data;
-    if ((firstChipBody == _player.chipmunkBody && secChipBody == _goal.chipmunkBody) ||
-        (firstChipBody == _goal.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+    if ([self collisionWithGoal:arbiter]) {
         NSLog(@"You hit the goal! =)");
         [_sound playSounds:@"goal"];
-        GameOver *gameOver = [[GameOver alloc] initGameOver:_player.playerScore :YES];
-        [[CCDirector sharedDirector] replaceScene:gameOver];
+        [self performSelector:@selector(gameOverAndWon) withObject:nil afterDelay:0.3];
     }
     if ((coin = [self collisionWithCoins:arbiter])) {
         NSLog(@"You got the coin! =)");
@@ -121,15 +116,15 @@
     if ([self collisionWithEnemys:arbiter]) {
         NSLog(@"GAME OVER! =)");
         [_sound playSounds:@"suck"];
-        GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
-        [[CCDirector sharedDirector] replaceScene:menu];
+        [self performSelector:@selector(gameOverAndNotWon) withObject:_goal afterDelay:1.0];
     }
     if ([self collisionWithStar:arbiter]) {
         NSLog(@"You got a star jei =D");
         [_sound playSounds:@"star"];
         cpVect vec = _player.position;
-        vec.x += 35000;
-        [[_player chipmunkBody] applyForce:vec offset:cpvzero];
+        _player.playerScore += 5000;
+        vec.x += _player.position.x + 125000;
+        [[_player chipmunkBody] applyImpulse:vec offset:cpvzero];
     }
     return YES;
 }
@@ -205,14 +200,9 @@
         [_space step:fixedTimeStep];
         _accumulator -= fixedTimeStep;
     }
-    
-   // NSString *st = NSStringFromCGPoint(_player.position);
-    //NSLog(st);
     [self updateScore];
     if (_followPlayer == YES)
     {
-        //_impulseVector = cpv(_player.chipmunkBody.mass/50, _player.chipmunkBody.mass/10);
-        //[_player.chipmunkBody applyForce:_impulseVector offset:cpvzero];
         if (_player.position.x >= _winSize.width / 2 && _player.position.x <
             (_landscapeWidth - (_winSize.width / 2)))
         {
@@ -222,23 +212,38 @@
             if(oldPlayerPositionX < _player.position.x)
                 [_player updatePlayerScore];
         }
-        
         if(_player.position.x >= _landscapeWidth)
         {
-            GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
-            [[CCDirector sharedDirector] replaceScene:menu];
+            [self performSelector:@selector(gameOverAndNotWon) withObject:_player afterDelay:1.7];
         }
         
     }
 }
 
-- (void)createParticleSystem
+- (void)gameOverAndWon
 {
-    // Setup particle system
+    GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :YES];
+    [[CCDirector sharedDirector] replaceScene:menu];
+}
+
+- (void)gameOverAndNotWon
+{
+    GameOver *menu = [[GameOver alloc] initGameOver:_player.playerScore :NO];
+    [[CCDirector sharedDirector] replaceScene:menu];
+}
+
+- (void)createParticleSystemWater
+{
     _splashParticles = [CCParticleSystemQuad particleWithFile:@"WaterSplash.plist"];
-    _splashParticles.position = _goal.position;
     [_splashParticles stopSystem];
     [_gameNode addChild:_splashParticles];
+}
+
+- (void)createParticleSystemFire
+{
+    _fireParticles = [CCParticleSystemQuad particleWithFile:@"particleFire.plist"];
+    [_fireParticles stopSystem];
+    [_gameNode addChild:_fireParticles];
 }
 
 -(Coin *)collisionWithCoins:(cpArbiter *)arbiter
@@ -292,6 +297,24 @@
     return NO;
 }
 
+-(bool) collisionWithGoal:(cpArbiter *)arbiter
+{
+    cpBody *firstBody;
+    cpBody *secondBody;
+    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
+    ChipmunkBody *firstChipBody = firstBody->data;
+    ChipmunkBody *secChipBody = secondBody->data;
+        if ((firstChipBody == _player.chipmunkBody && secChipBody == _goal.chipmunkBody) ||
+            (firstChipBody == _goal.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+            _fireParticles.position = _goal.position;
+            [_fireParticles resetSystem];
+            [_goal removeFromParentAndCleanup:YES];
+            return YES;
+        }
+    return NO;
+}
+
+
 
 -(void)updatePhysicsLandscape
 {
@@ -311,7 +334,6 @@
 
 -(void)initInputLayer
 {
-    //Add inputLayer
     inputLayer *inputlayer = [[inputLayer alloc] init];
     inputlayer.delegate = self;
     [self addChild:inputlayer];
@@ -319,7 +341,6 @@
 
 -(void)createDebugNode:(BOOL) ok
 {
-    // Create our debug node
     CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
     debugNode.visible = ok;
     [_gameNode addChild:debugNode];
@@ -338,13 +359,12 @@
 
 -(void)createCoins
 {
-    //Add coin
     _coinBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
     CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"newCoins-hd.png"];
     [_gameNode addChild:_coinBatchNode];
     [_gameNode addChild:batchNode];
     for (int i = 0; i < 20; i++) {
-        _coin = [[Coin alloc] initWithSpace:_space position:ccp(CCRANDOM_0_1() * _landscapeWidth, CCRANDOM_0_1() * _winSize.height)];
+        _coin = [[Coin alloc] initWithSpace:_space position:ccp(CCRANDOM_0_1() * _landscapeWidth, CCRANDOM_0_1() * (_winSize.height - 100))];
         [_coin runAction:_coin.coinAction];
         [_coinBatchNode addChild:_coin];
     }
@@ -352,11 +372,10 @@
 
 -(void)createEnemys
 {
-    //Add enemy
     _enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
     [_gameNode addChild:_enemyBatchNode];
     for (int i = 0; i < 8; i++) {
-        Enemy *en = [[Enemy alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * _winSize.height))];
+        Enemy *en = [[Enemy alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * (_winSize.height - 100)))];
         [en runAction:en.enemyAction];
         [_enemyBatchNode addChild:en];
     }
@@ -364,13 +383,10 @@
 
 -(void)createStars
 {
-    //Add stars
     _starBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"star.png"];
     [_gameNode addChild:_starBatchNode];
     for (int i = 0; i < 3; i++) {
-        //Add enemy
-        //CCSpriteBatchNode *enemyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"newApple-hd.png"];
-        Star *st = [[Star alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * _winSize.height))];
+        Star *st = [[Star alloc] initWithSpace:_space position:ccp((CCRANDOM_0_1() * _landscapeWidth) + 200, (CCRANDOM_0_1() * (_winSize.height - 100)))];
         [st runAction:st.starAction];
         [_starBatchNode addChild:st];
     }

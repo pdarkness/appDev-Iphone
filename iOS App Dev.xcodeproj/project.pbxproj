@@ -182,6 +182,7 @@
 		C24DCF9517F8F7BE002FC1E5 /* ghost.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24DCF8F17F8F7BE002FC1E5 /* ghost.plist */; };
 		C24DCF9617F8F7BE002FC1E5 /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = C24DCF9017F8F7BE002FC1E5 /* ghost.png */; };
 		C24DCF9A17F9000A002FC1E5 /* ground2.png in Resources */ = {isa = PBXBuildFile; fileRef = C24DCF9917F9000A002FC1E5 /* ground2.png */; };
+		C28FA9EF17FB11EE005B5EFD /* particleFire.plist in Resources */ = {isa = PBXBuildFile; fileRef = C28FA9EE17FB11EE005B5EFD /* particleFire.plist */; };
 		C29F3AEB17F6FAAA00523EA1 /* newCoins-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE517F6FAAA00523EA1 /* newCoins-hd.plist */; };
 		C29F3AEC17F6FAAA00523EA1 /* newCoins-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE617F6FAAA00523EA1 /* newCoins-hd.png */; };
 		C29F3AED17F6FAAA00523EA1 /* newCoins-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29F3AE717F6FAAA00523EA1 /* newCoins-ipadhd.plist */; };
@@ -622,6 +623,7 @@
 		C24DCF8F17F8F7BE002FC1E5 /* ghost.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ghost.plist; sourceTree = "<group>"; };
 		C24DCF9017F8F7BE002FC1E5 /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost.png; sourceTree = "<group>"; };
 		C24DCF9917F9000A002FC1E5 /* ground2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground2.png; sourceTree = "<group>"; };
+		C28FA9EE17FB11EE005B5EFD /* particleFire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = particleFire.plist; sourceTree = "<group>"; };
 		C29F3AE517F6FAAA00523EA1 /* newCoins-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "newCoins-hd.plist"; sourceTree = "<group>"; };
 		C29F3AE617F6FAAA00523EA1 /* newCoins-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newCoins-hd.png"; sourceTree = "<group>"; };
 		C29F3AE717F6FAAA00523EA1 /* newCoins-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "newCoins-ipadhd.plist"; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C28FA9EE17FB11EE005B5EFD /* particleFire.plist */,
 				4C13F56417FB072000A23D67 /* star.wav */,
 				C2D9979517FA392100C82F8A /* star-hd.plist */,
 				C2D9979617FA392100C82F8A /* star-hd.png */,
@@ -1369,6 +1372,7 @@
 				4C9089CA17F4C5D8003A936E /* coinsSprite-ipadhd.plist in Resources */,
 				4CCD845317F8E278002396D7 /* applause-8.wav in Resources */,
 				C22C156017F37750000CD33D /* mirror.png in Resources */,
+				C28FA9EF17FB11EE005B5EFD /* particleFire.plist in Resources */,
 				0B312F4417E85CF200D0829B /* Default.png in Resources */,
 				0B312F4617E85CF200D0829B /* Default@2x.png in Resources */,
 				C24DCF9117F8F7BE002FC1E5 /* ghost-hd.plist in Resources */,

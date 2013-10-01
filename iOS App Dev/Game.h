@@ -28,6 +28,7 @@
     CGFloat _landscapeWidth;
     CCNode *_gameNode;
     CCParticleSystemQuad *_splashParticles;
+    CCParticleSystemQuad *_fireParticles;
     ChipmunkSpace *_space;
     ccTime _accumulator;
     Goal *_goal;
