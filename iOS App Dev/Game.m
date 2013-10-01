@@ -384,14 +384,14 @@
 
 - (void)touchEndedAtPosition:(CGPoint)position afterDelay:(NSTimeInterval)delay
 {
-    //position = [_gameNode convertToNodeSpace:position];
+    position = [_gameNode convertToNodeSpace:position];
    // NSLog(@"touch: %@", NSStringFromCGPoint(position));
     //NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
     _followPlayer = YES;
 
     cpVect normalizedVector = cpvnormalize(cpvsub([self touchedPositionAgainstPlayer:position], _player.position));
 
-    [_player jumpWithPower:delay*1000 vector:normalizedVector];
+    [_player jumpWithPower:delay*600 vector:normalizedVector];
 }
 -(CGPoint) touchedPositionAgainstPlayer: (CGPoint)position
 {
