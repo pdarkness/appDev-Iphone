@@ -128,7 +128,6 @@
         NSLog(@"You got a star jei =D");
         cpVect vec = _player.position;
         vec.x += 35000;
-        
         [[_player chipmunkBody] applyForce:vec offset:cpvzero];
     }
     return YES;
@@ -283,6 +282,9 @@
     for (Star *star in _starBatchNode.children) {
         if ((firstChipBody == _player.chipmunkBody && secChipBody == star.chipmunkBody) ||
             (firstChipBody == star.chipmunkBody && secChipBody == _player.chipmunkBody)) {
+            _splashParticles.position = star.position;
+            [_splashParticles resetSystem];
+            [star removeFromParentAndCleanup:YES];
             return YES;
         }
     }
